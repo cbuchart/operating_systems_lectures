@@ -4,7 +4,7 @@
 
 Tonight is Halloween, children are excited about tonight's party: costumes, candies and, if there is no other choice, settle accounts with those wicked who don't have enough sweet supplies. And that is that year after year the thing has got worse: more little monsters dressed as children, less candies.
 
-You've been chosen to try to prevent the disaster and you've been hired to run a simulation of what can happen and be prepared.
+You've been chosen to try to prevent the disaster by running a simulation of what can happen and be prepared.
 
 ## Problem
 
@@ -43,6 +43,7 @@ This practice aims for 5% of the course (maximum score is then 0.5).
 
 Grading rules are as follows:
 - No code sent: 0 points. Code sent after deadline will be ignored and doesn't count at all.
+- Any additional file other than single ```.cpp``` source code file: -0.1 points.
 - Code doesn't compile: 0 points.
 - No statistics: -0.1 points.
 - Race conditions are not handled correctly: -0.25 points.
