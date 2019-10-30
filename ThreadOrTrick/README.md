@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Tonight is Halloween, children are excited about tonight's party: customs, candies and, if there is no other choice, settle accounts with those wicked who don't have enough sweet supplies. And that is that year after year the thing has got worse: more little monsters dressed as children, less candies.
+Tonight is Halloween, children are excited about tonight's party: costumes, candies and, if there is no other choice, settle accounts with those wicked who don't have enough sweet supplies. And that is that year after year the thing has got worse: more little monsters dressed as children, less candies.
 
-You've been choosen to try to prevent the dissaster and you've been hired to run a simulation of what can happen and be prepared.
+You've been chosen to try to prevent the disaster and you've been hired to run a simulation of what can happen and be prepared.
 
 ## Problem
 
@@ -17,21 +17,21 @@ To do so, you must take into consideration the following parameters:
 - ```2M <= N```.
 - No house will have more than ```C=10``` candies at any moment.
 - Each house will start with maximum candy supplies.
-- When a child knocks on a door it will ask for "Treat or trick". If there are candies at the house, will be treat (decreasing house's stack and increasing child's count). Otherwise trick.
-- Trick duration is ```50ms```, while treat is ```10ms```. Moving from a house to the next one takes ```20ms```.
+- When a child knocks on a door it will ask for "Treat or trick". If there are candies at the house, will be a treat (decreasing house's stack and increasing child's count). Otherwise trick.
+- Trick duration is ```50ms```, while treating is ```10ms```. Moving from one house to the next one takes ```20ms```.
 - Each child may start at any house of the neighborhood.
 - There is a candy deliveryman that is constantly given a few candies (```D=10```) to each house if it is running below a certain threshold ```T=3```.
 - Delivery is done in ```5ms``` and it takes ```15ms``` to reach the next house.
-- The deliveryman always start at house 0.
-- While the owner of a house is busy attending a child no other child or the deliveryman can access the candy storage. It includes the case of trick. The same happens while the deliveryman is giving candies: no child can access the house.
-- Both children and deliveryman travel houses in the same incresing order. If last house is reached, next house is 0.
-- Both children and deliveryman will be traveling houses over and over until either a child reaches 100 candies or 100 tricks done. Candies and tricks are checked before moving to the next house.
+- The delivery man always start at house 0.
+- While the owner of a house is busy attending a child no other child or the delivery man can access the candy storage. It includes the case of trick. The same happens while the delivery man is giving candies: no child can access the house.
+- Both children and delivery man travel houses in the same increasing order. If last house is reached, the next house is 0.
+- Both children and delivery man will be traveling houses over and over until either a child reaches 100 candies or 100 tricks done. Candies and tricks are checked before moving to the next house.
 - At the end, overall statistics must be printed:
-  - Total number of candies received.
-  - Average number of candies received per child.
-  - Total number of tricks done.
-  - Average number of tricks done per child.
-  - Total number of candies remaining at houses.
+  - Total number of candies received.
+  - Average number of candies received per child.
+  - Total number of tricks done.
+  - Average number of tricks done per child.
+  - Total number of candies remaining at houses.
 
 ## Delivery and Grading
 
