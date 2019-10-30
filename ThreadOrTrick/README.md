@@ -50,6 +50,7 @@ Grading rules are as follows:
 - Code doesn't compile: 0 points.
 - No statistics: -0.1 points.
 - Race conditions are not handled correctly: -0.25 points.
+- Excesive protection that leads to low concurrency levels: -0.1 points.
 - No multi-threading at all: -0.45 points.
 
 ## Additional questions
@@ -58,3 +59,120 @@ Following question will help you to delve into the topic. Though they are not gr
 - What computer-related situations can be compared with this problem? Associate each actor and action.
 - What does happen when the number of children is smaller than the number of houses? And when it is greater? Or fives times as large?
 - What are the effects of modifying the parameters of the delivery man? And supressing it?
+
+## Initial code template
+
+Code below can be used as a starting point for your project:
+```
+#include <iostream>
+#include <algorithm>
+#include <thread>
+#include <mutex>
+#include <chrono>
+#include <vector>
+#include <cassert>
+#include <random>
+#include <atomic>
+
+constexpr size_t g_child_count = 10;
+constexpr size_t g_house_count = 20;
+
+constexpr size_t g_treat_limit = 100;
+constexpr size_t g_trick_limit = 100;
+
+constexpr size_t g_candy_limit_per_house = 10;
+
+void child(size_t next_house)
+{
+  constexpr auto travel_duration = std::chrono::milliseconds(20);
+
+  while (true) {
+    std::this_thread::sleep_for(travel_duration);
+  }
+}
+
+void deliveryman()
+{
+  constexpr auto travel_duration = std::chrono::milliseconds(15);
+
+  while (true) {
+    std::this_thread::sleep_for(travel_duration);
+  }
+}
+
+int main()
+{
+  // Random number generator
+  std::random_device rd;
+  std::mt19937 mt(rd());
+  std::uniform_int_distribution<int> dist(0, g_house_count - 1);
+
+  // Thread creation
+  std::vector<std::thread> child_threads;
+  for (size_t ii = 0; ii < g_child_count; ++ii) {
+    child_threads.emplace_back(child, dist(mt)); // start at random house
+  }
+
+  // ...
+
+  // Results
+  std::cout << "STATISTICS\n";
+  std::cout << "Total treats: " << "\n";
+  std::cout << "Avg. treats:  " << "\n";
+  std::cout << "Total tricks: " << "\n";
+  std::cout << "Avg. tricks:  " << "\n";
+  std::cout << "Rem. candies: " << "\n";
+
+  return 0;
+}
+```
+
+## Code snippets
+
+### Thread creation
+```
+void a_function(int a_parameter) { /* ... */ }
+
+std::thread a_thread(a_function, 5); // starts thread immediately
+```
+
+### Waiting for a thread to finish
+```
+a_thread.join();
+```
+
+### Using a mutex
+```
+std::mutex a_mutex;
+
+a_mutex.lock();
+// ...
+a_mutex.unlock();
+```
+
+Or
+
+```
+{
+  std::lock_guard<std::mutex> lock(a_mutex);
+  // ...
+}
+```
+
+### Sleeping a thread
+```
+std::this_thread::sleep_for(std::chrono::milliseconds(42));
+```
+
+### Generating random numbers
+```
+std::random_device rd;
+std::mt19937 mt(rd()); // Mersenne Twister 19937 generator
+std::uniform_int_distribution<int> dist(0, 100); // uniform distribution in [0, 100]
+```
+
+## Further interesting reading
+- Atomic variables
+- ```constexpr```
+- ```std::endl``` vs ```'\n'```
+- ```size_t```
