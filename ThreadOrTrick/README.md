@@ -63,7 +63,8 @@ Following question will help you to delve into the topic. Though they are not gr
 ## Initial code template
 
 Code below can be used as a starting point for your project:
-```
+
+```c++
 #include <iostream>
 #include <algorithm>
 #include <thread>
@@ -130,19 +131,19 @@ int main()
 ## Code snippets
 
 ### Thread creation
-```
+```c++
 void a_function(int a_parameter) { /* ... */ }
 
 std::thread a_thread(a_function, 5); // starts thread immediately
 ```
 
 ### Waiting for a thread to finish
-```
+```c++
 a_thread.join();
 ```
 
 ### Using a mutex
-```
+```c++
 std::mutex a_mutex;
 
 a_mutex.lock();
@@ -152,7 +153,7 @@ a_mutex.unlock();
 
 Or
 
-```
+```c++
 {
   std::lock_guard<std::mutex> lock(a_mutex);
   // ...
@@ -160,12 +161,12 @@ Or
 ```
 
 ### Sleeping a thread
-```
+```c++
 std::this_thread::sleep_for(std::chrono::milliseconds(42));
 ```
 
 ### Generating random numbers
-```
+```c++
 std::random_device rd;
 std::mt19937 mt(rd()); // Mersenne Twister 19937 generator
 std::uniform_int_distribution<int> dist(0, 100); // uniform distribution in [0, 100]
