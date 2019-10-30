@@ -1,40 +1,43 @@
 # Thread or Trick
 
 ## Introduction
-
 Tonight is Halloween, children are excited about tonight's party: costumes, candies and, if there is no other choice, settle accounts with those wicked who don't have enough sweet supplies. And that is that year after year the thing has got worse: more little monsters dressed as children, less candies.
 
 You've been chosen to try to prevent the disaster by running a simulation of what can happen and be prepared.
 
 ## Problem
-
 Develop an application that can simulate the party and obtain statistics about candy flow and trick count.
 
 To do so, you must take into consideration the following parameters:
 
 - There are ```N``` children in the neighborhood.
 - There are ```M``` houses in the neighborhood.
-- ```2M <= N```.
+- ```N, M > 0```.
 - No house will have more than ```C=10``` candies at any moment.
 - Each house will start with maximum candy supplies.
 - When a child knocks on a door it will ask for "Treat or trick". If there are candies at the house, will be a treat (decreasing house's stack and increasing child's count). Otherwise trick.
 - Trick duration is ```50ms```, while treating is ```10ms```. Moving from one house to the next one takes ```20ms```.
 - Each child may start at any house of the neighborhood.
-- There is a candy deliveryman that is constantly given a few candies (```D=10```) to each house if it is running below a certain threshold ```T=3```.
+- There is a candy deliveryman that is constantly giving a few candies (```D=10```) to each house if it is running below a certain threshold ```T=3```.
 - Delivery is done in ```5ms``` and it takes ```15ms``` to reach the next house.
-- The delivery man always start at house 0.
-- While the owner of a house is busy attending a child no other child or the delivery man can access the candy storage. It includes the case of trick. The same happens while the delivery man is giving candies: no child can access the house.
+- The delivery man always start at the first house.
+- While the owner of a house is busy attending a child no other child or the delivery man can access the candy storage. It includes the case of trick. The same happens when the delivery man is giving candies: no child can access such house and must wait.
 - Both children and delivery man travel houses in the same increasing order. If last house is reached, the next house is 0.
-- Both children and delivery man will be traveling houses over and over until either a child reaches 100 candies or 100 tricks done. Candies and tricks are checked before moving to the next house.
+- Both children and delivery man will be traveling houses over and over until either a child reaches 100 candies or 100 tricks done. Candies and tricks count are checked before moving to the next house.
 - At the end, overall statistics must be printed:
   - Total number of candies received.
   - Average number of candies received per child.
   - Total number of tricks done.
   - Average number of tricks done per child.
   - Total number of candies remaining at houses.
+ 
+## Tips
+- Identify the actors in the problem that has to perform actions in parallel.
+- Identify the resources that may be accessed by more than one actor and determine if a race condition may occur.
+- Some threading problems can be solved first in a serial fashion and then be migrated to a parallel solution. For this problem this approach is not recommended, given the concurrent nature of children and the delivery man.
+- As a general programming consideration, use constants for any parameter, even when it seems to be fixed (for example, durations, number of children, maximum candy storage...). In this way it will be easier for you to make modifications and also experiment with the parameters.
 
 ## Delivery and Grading
-
 Solution proposed shall be developed using C++11 or higher, all into a single ```.cpp``` file (no compressed solutions, no executables, etc).
 
 Source code must be sent to Professor's email before October 31st, 2019, 23:59:59. Only the last email within the valid period will be corrected, but all deliveries after deadline will just be ignored.
@@ -48,3 +51,10 @@ Grading rules are as follows:
 - No statistics: -0.1 points.
 - Race conditions are not handled correctly: -0.25 points.
 - No multi-threading at all: -0.45 points.
+
+## Additional questions
+Following question will help you to delve into the topic. Though they are not graded, it is recommended to think about them.
+
+- What computer-related situations can be compared with this problem? Associate each actor and action.
+- What does happen when the number of children is smaller than the number of houses? And when it is greater? Or fives times as large?
+- What are the effects of modifying the parameters of the delivery man? And supressing it?
