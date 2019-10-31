@@ -24,12 +24,13 @@ To do so, you must take into consideration the following parameters:
 - While the owner of a house is busy attending a child no other child or the delivery man can access the candy storage. It includes the case of trick. The same happens when the delivery man is giving candies: no child can access such house and must wait.
 - Both children and delivery man travel houses in the same increasing order. If last house is reached, the next house is 0.
 - Both children and delivery man will be traveling houses over and over until either a child reaches 100 candies or 100 tricks done. Candies and tricks count are checked before moving to the next house.
-- At the end, overall statistics must be printed:
-  - Total number of candies received.
-  - Average number of candies received per child.
-  - Total number of tricks done.
-  - Average number of tricks done per child.
-  - Total number of candies remaining at houses.
+
+At the end, overall statistics must be printed:
+- Total number of candies received.
+- Average number of candies received per child.
+- Total number of tricks done.
+- Average number of tricks done per child.
+- Total number of candies remaining at houses.
  
 ## Tips
 - Identify the actors in the problem that has to perform actions in parallel.
