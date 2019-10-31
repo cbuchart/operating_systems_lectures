@@ -18,7 +18,7 @@ To do so, you must take into consideration the following parameters:
 - When a child knocks on a door it will ask for "Treat or trick". If there are candies at the house, will be a treat (decreasing house's stack and increasing child's count). Otherwise trick.
 - Trick duration is ```50ms```, while treating is ```10ms```. Moving from one house to the next one takes ```20ms```.
 - Each child may start at any house of the neighborhood.
-- There is a candy deliveryman that is constantly giving a few candies (```D=10```) to each house if it is running below a certain threshold ```T=3```.
+- There is a candy delivery man that is constantly giving a few candies (```D=10```) to each house if it is running below a certain threshold ```T=3```. The delivery man has infinite candy supplies.
 - Delivery is done in ```5ms``` and it takes ```15ms``` to reach the next house.
 - The delivery man always start at the first house.
 - While the owner of a house is busy attending a child no other child or the delivery man can access the candy storage. It includes the case of trick. The same happens when the delivery man is giving candies: no child can access such house and must wait.
