@@ -174,7 +174,7 @@ std::uniform_int_distribution<int> dist(0, 100); // uniform distribution in [0, 
 ```
 
 ## Further interesting reading
-- Atomic variables
-- ```constexpr```
-- ```std::endl``` vs ```'\n'```
-- ```size_t```
+  - Atomic variables
+  - ```constexpr```
+  - ```std::endl``` vs ```'\n'```
+  - ```size_t```
