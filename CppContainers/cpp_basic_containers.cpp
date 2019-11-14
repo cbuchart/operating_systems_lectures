@@ -56,10 +56,12 @@ void print_vector_info(const std::vector<T>& a_vector)
 {
   std::cout << "Size: " << a_vector.size() << '\n';
   std::cout << "Capacity: " << a_vector.capacity() << '\n';
+  std::cout << "Memory footprint: " << a_vector.capacity() * sizeof(T) << "B\n";
   if (!a_vector.empty()) {
     std::cout << "Address of first element: " << &a_vector.front() << '\n';
     std::cout << "Address of last element: " << &a_vector.back() << '\n';
   }
+  std::cout << "-----\n";
 }
 
 template<typename T>
@@ -224,7 +226,7 @@ int main()
 
     if (false) {
       const int n = 100000;
-      profile_push_backs<std::vector<D>>(n);
+      profile_push_backs<std::vector<D>>(n); // try commenting this line
       profile_push_backs<std::list<D>>(n);
     }
   }
