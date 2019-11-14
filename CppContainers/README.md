@@ -9,6 +9,8 @@ In this first part you will see how ```push_back``` works on both containers.
 -  Inserting elements in a list.
 -  Same as first but using pointers this time.
 
+Answer following sub-questions:
+
 1. How element insertion differs in a vector and a list?
 2. What happens to existing elements in a vector when the container has to grow to store a new element? Are the same after insertion?
 3. What happens when memory is pre-allocated?
