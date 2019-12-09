@@ -202,7 +202,7 @@ A system call is how a program requests a service from an [operating system](htt
 
 ## Boot loader
 
-A boot loader is a computer program that loads an operating system or some other system software for the computer after completion of the power-on self-tests<sup>[1](#footnote-post)</sup>; it is the loader for the operating system itself. Within the hard reboot process, it runs after completion of the self-tests, then loads and runs the software. A boot loader is loaded into main memory from persistent memory, such as a hard disk drive or, in some older computers, from a medium such as punched cards, punched tape, or magnetic tape. The boot loader then loads and executes the processes that finalize the boot. Like POST processes, the boot loader code comes from a \"hard-wired\" and persistent location; if that location is too limited for some reason, that primary boot loader calls a second-stage boot loader or a secondary program loader.
+A boot loader is a computer program that loads an operating system or some other system software for the computer after completion of the power-on self-tests<sup>[1](#footnote-post)</sup>; it is the loader for the operating system itself. Within the hard reboot process, it runs after completion of the self-tests, then loads and runs the software. A boot loader is loaded into main memory from persistent memory, such as a hard disk drive or, in some older computers, from a medium such as punched cards, punched tape, or magnetic tape. The boot loader then loads and executes the processes that finalize the boot. Like POST processes, the boot loader code comes from a _hard-wired_ and persistent location; if that location is too limited for some reason, that primary boot loader calls a second-stage boot loader or a secondary program loader.
 
 ## Standard streams
 
@@ -407,7 +407,7 @@ In general, a computer system process consists of (or is said to own) the follow
 -   Security attributes, such as the process owner and the process\' set of permissions (allowable operations).
 -   Processor state (context), such as the content of registers, physical memory addressing, etc. The state is typically stored in computer registers when the process is executing, and in memory otherwise.
 
-The operating system holds most of this information about active processes in data structures called *process control blocks*. Any subset of the resources, typically at least the processor state, may be associated with each of the process\' threads in operating systems that support threads or child (daughter) processes.
+The operating system holds most of this information about active processes in data structures called _process control blocks_. Any subset of the resources, typically at least the processor state, may be associated with each of the process\' threads in operating systems that support threads or child (daughter) processes.
 
 ### Process Lifecycle
 
@@ -417,9 +417,9 @@ n a multitasking computer system, processes may occupy a variety of states. Thes
 
 #### Created or New
 
-When a process is first created, it occupies the \"created\" or \"new\" state. In this state, the process awaits admission to the \"ready\" state. This admission will be approved or delayed by a long-term, or admission, scheduler. Typically, in most desktop computer systems, this admission will be approved automatically. However, for real-time operating systems this admission may be delayed. In a real-time system, admitting too many processes to the \"ready\" state may lead to over-saturation and over-contention for the systems resources, leading to an inability to meet process deadlines.
+When a process is first created, it occupies the _created_ or _new_ state. In this state, the process awaits admission to the _ready_ state. This admission will be approved or delayed by a long-term, or admission, scheduler. Typically, in most desktop computer systems, this admission will be approved automatically. However, for real-time operating systems this admission may be delayed. In a real-time system, admitting too many processes to the _ready_ state may lead to over-saturation and over-contention for the systems resources, leading to an inability to meet process deadlines.
 
-On POSIX operating systems (like UNIX, macOS and Linux) a new process is created using the \"fork\" function. For a process to start the execution of a different program, it first forks to create a copy of itself. Then, the copy, called the \"child process\", calls the exec system call to overlay itself with the other program: it ceases execution of its former program in favor of the other. When a process is copied, the entire PCB is duplicated and new address spaces are created, so even when variables and pointers have same values they are actually different elements. The fork function can be speeded up if copy-on-write semantics are implemented: in this case, the memory is not actually duplicated until any of the processes wants to modify it. If only read operations are executed, then both processes are using exactly the same memory elements. This can be implemented at page level, increasing even more the efficiency of the fork at the expense of higher latency in further operations.
+On POSIX operating systems (like UNIX, macOS and Linux) a new process is created using the `fork` function. For a process to start the execution of a different program, it first forks to create a copy of itself. Then, the copy, called the _child process_, calls the exec system call to overlay itself with the other program: it ceases execution of its former program in favor of the other. When a process is copied, the entire PCB is duplicated and new address spaces are created, so even when variables and pointers have same values they are actually different elements. The fork function can be speeded up if copy-on-write semantics are implemented: in this case, the memory is not actually duplicated until any of the processes wants to modify it. If only read operations are executed, then both processes are using exactly the same memory elements. This can be implemented at page level, increasing even more the efficiency of the fork at the expense of higher latency in further operations.
 
 ```
 #include <stdio.h>
@@ -455,13 +455,13 @@ int main()
 }
 ```
 
-On Windows systems, a new process is started using the *CreateProcess* function, specifying the command or application to be executed as well as different properties and context information.
+On Windows systems, a new process is started using the `CreateProcess` function, specifying the command or application to be executed as well as different properties and context information.
 
 #### Ready and Waiting
 
-A \"ready\" or \"waiting\" process has been loaded into main memory and is awaiting execution on a CPU (to be context switched onto the CPU by the dispatcher, or short-term scheduler). There may be many \"ready\" processes at any one point of the system\'s execution---for example, in a one-processor system, only one process can be executing at any one time, and all other \"concurrently executing\" processes will be waiting for execution.
+A _ready_ or _waiting_ process has been loaded into main memory and is awaiting execution on a CPU (to be context switched onto the CPU by the dispatcher, or short-term scheduler). There may be many _ready_ processes at any one point of the system\'s execution---for example, in a one-processor system, only one process can be executing at any one time, and all other _concurrently executing_ processes will be waiting for execution.
 
-A ready queue or run queue is used in computer scheduling. Modern computers can run many different programs or processes at the same time. However, the CPU is only capable of handling one process at a time (multi-core CPUs or systems with multiple CPUs, on the other hand, can run several processes at the same time). Processes that are ready for the CPU are kept in a queue for \"ready\" processes. Other processes that are waiting for an event to occur, such as loading information from a hard drive or waiting on an internet connection, are not in the ready queue.
+A ready queue or run queue is used in computer scheduling. Modern computers can run many different programs or processes at the same time. However, the CPU is only capable of handling one process at a time (multi-core CPUs or systems with multiple CPUs, on the other hand, can run several processes at the same time). Processes that are ready for the CPU are kept in a queue for _ready_ processes. Other processes that are waiting for an event to occur, such as loading information from a hard drive or waiting on an internet connection, are not in the ready queue.
 
 #### Running
 
@@ -473,7 +473,7 @@ A process that is blocked is one that is waiting for some event, such as a resou
 
 #### Terminated
 
-A process may be terminated, either from the \"running\" state by completing its execution or by explicitly being killed. In either of these cases, the process moves to the \"terminated\" state. The underlying program is no longer executing, but the process remains in the process table as a zombie process until its parent process calls the wait system call to read its exit status, at which point the process is removed from the process table, finally ending the process\'s lifetime. If the parent fails to call wait, this continues to consume the process table entry (concretely the process identifier or PID) and causes a resource leak.
+A process may be terminated, either from the _running_ state by completing its execution or by explicitly being killed. In either of these cases, the process moves to the _terminated_ state. The underlying program is no longer executing, but the process remains in the process table as a zombie process until its parent process calls the wait system call to read its exit status, at which point the process is removed from the process table, finally ending the process\'s lifetime. If the parent fails to call wait, this continues to consume the process table entry (concretely the process identifier or PID) and causes a resource leak.
 
 ## Threads
 
@@ -550,7 +550,7 @@ A race condition or race hazard is the behavior of an electronic, software or ot
 
 Race conditions arise in software when an application depends on the sequence or timing of processes or threads for it to operate properly. Critical race conditions often happen when the processes or threads depend on some shared state. Operations upon shared states are critical sections that must be mutually exclusive. Failure to obey this rule opens the possibility of corrupting the shared state.
 
-The memory model defined in the C11 and C++11 standards uses the term \"data race\" for a critical race condition caused by concurrent reads and writes of a shared memory location. A C or C++ program containing a data race has undefined behavior.
+The memory model defined in the C11 and C++11 standards uses the term _data race_ for a critical race condition caused by concurrent reads and writes of a shared memory location. A C or C++ program containing a data race has undefined behavior.
 
 Race conditions have a reputation of being difficult to reproduce and debug, since the result is nondeterministic and depends on the relative timing between interfering threads. Problems occurring in production systems can therefore disappear when running in debug mode, when additional logging is added, or when attaching a debugger. It is therefore better to avoid race conditions by careful software design rather than attempting to fix them afterwards.
 
@@ -580,15 +580,15 @@ Four conditions are necessary to have a good solution to the critical section pr
 
 ### Mutex
 
-A mutex (from *mut*ual *ex*clusion) is a synchronization primitive that can be used to protect shared data from being simultaneously accessed by multiple threads. It offers exclusive, non-recursive ownership semantics:
+A mutex (from_mut_ual _ex_clusion) is a synchronization primitive that can be used to protect shared data from being simultaneously accessed by multiple threads. It offers exclusive, non-recursive ownership semantics:
 
--   A calling thread owns a mutex from the time that it successfully calls either *lock* or *try\_lock* until it calls *unlock*.
+-   A calling thread owns a mutex from the time that it successfully calls either `lock` or `try_lock` until it calls `unlock`.
 
--   When a thread owns a mutex, all other threads will block (for calls to *lock*) or receive a false return value (for *try\_lock*) if they attempt to claim ownership of the mutex.
+-   When a thread owns a mutex, all other threads will block (for calls to `lock`) or receive a false return value (for `try_lock`) if they attempt to claim ownership of the mutex.
 
--   A calling thread must not own the mutex prior to calling *lock* or *try\_lock*.
+-   A calling thread must not own the mutex prior to calling `lock` or `try_lock`.
 
-In addition, a lock guard (*lock\_guard* in C++11) is a mutex wrapper that provides a convenient mechanism for owning a mutex for the duration of a scoped block.
+In addition, a lock guard (`lock_guard` in C++11) is a mutex wrapper that provides a convenient mechanism for owning a mutex for the duration of a scoped block.
 
 When a lock guard object is created, it attempts to take ownership of the mutex it is given. When control leaves the scope in which the lock guard object was created, the lock guard is destructed and the mutex is released.
 
@@ -625,11 +625,11 @@ void thread_func_with_lock_guard()
 
 ### Producer-consumer
 
-The producer--consumer problem (also known as the *bounded-buffer problem*) is a classic example of a multi-process synchronization problem. The problem describes two processes, the producer and the consumer, who share a common, fixed-size buffer used as a queue. The producer\'s job is to generate a piece of data, put it into the buffer and start again. At the same time, the consumer is consuming the data (i.e., removing it from the buffer) one piece at a time. The problem is to make sure that the producer won\'t try to add data into the buffer if it\'s full and that the consumer won\'t try to remove data from an empty buffer.
+The producer--consumer problem (also known as the _bounded-buffer problem_) is a classic example of a multi-process synchronization problem. The problem describes two processes, the producer and the consumer, who share a common, fixed-size buffer used as a queue. The producer\'s job is to generate a piece of data, put it into the buffer and start again. At the same time, the consumer is consuming the data (i.e., removing it from the buffer) one piece at a time. The problem is to make sure that the producer won\'t try to add data into the buffer if it\'s full and that the consumer won\'t try to remove data from an empty buffer.
 
 The solution for the producer is to either go to sleep or discard data if the buffer is full. The next time the consumer removes an item from the buffer, it notifies the producer, who starts to fill the buffer again. In the same way, the consumer can go to sleep if it finds the buffer to be empty. The next time the producer puts data into the buffer, it wakes up the sleeping consumer. The solution can be reached by means of inter-process communication, typically using semaphores. An inadequate solution could result in a deadlock where both processes are waiting to be awakened. The problem can also be generalized to have multiple producers and consumers.
 
-A circular buffer can be used to store the produced data. Producer adds data to the buffer computing the next available index as next\_position = (next\_position + 1) % max\_buffer\_size, but it usually complicates the design of consumers, since processing speed is not guaranteed to be constant and therefore empty spaces in the buffer may not be contiguous, probably blocking the producer or discarding information when there was available space to store new items.
+A circular buffer can be used to store the produced data. Producer adds data to the buffer computing the next available index as `next_position = (next_position + 1) % max_buffer_size`, but it usually complicates the design of consumers, since processing speed is not guaranteed to be constant and therefore empty spaces in the buffer may not be contiguous, probably blocking the producer or discarding information when there was available space to store new items.
 
 A more general and useful solution is as follows: both the producer and the consumer will share a fixed-size buffer, a list of available positions, and a list of items ready to be processed. To avoid race conditions, both lists will have a lock to control access. When the producer wants to add an element, it will take the first available index (if the list is empty means there are not any free slot and the producer will discard the item), copy the element into the buffer and add the index to the ready list. When a consumer wants to process an item it follows similar steps: takes an index from the ready list, processes it and returns the index to the available list.
 
@@ -667,7 +667,7 @@ Deadlock prevention works by preventing one of the four conditions from occurrin
 
 -   The hold and wait or resource holding conditions may be removed by requiring processes to request all the resources they will need before starting up (or before embarking upon a particular set of operations). This advance knowledge is frequently difficult to satisfy and, in any case, is an inefficient use of resources. Another way is to require processes to request resources only when it has none. Thus, first they must release all their currently held resources before requesting all the resources they will need from scratch. This too is often impractical. It is so because resources may be allocated and remain unused for long periods. Also, a process requiring a popular resource may have to wait indefinitely, as such a resource may always be allocated to some process, resulting in resource starvation.
 
--   The no preemption condition may also be difficult or impossible to avoid as a process must be able to have a resource for a certain amount of time, or the processing outcome may be inconsistent or thrashing may occur. However, inability to enforce preemption may interfere with a priority algorithm. Preemption of a \"locked out\" resource generally implies a rollback, and is to be avoided, since it is very costly in overhead. Algorithms that allow preemption include lock-free and wait-free algorithms and optimistic concurrency control. If a process holding some resources and requests for some another resource(s) that cannot be immediately allocated to it, the condition may be removed by releasing all the currently being held resources of that process.
+-   The no preemption condition may also be difficult or impossible to avoid as a process must be able to have a resource for a certain amount of time, or the processing outcome may be inconsistent or thrashing may occur. However, inability to enforce preemption may interfere with a priority algorithm. Preemption of a _locked out_ resource generally implies a rollback, and is to be avoided, since it is very costly in overhead. Algorithms that allow preemption include lock-free and wait-free algorithms and optimistic concurrency control. If a process holding some resources and requests for some another resource(s) that cannot be immediately allocated to it, the condition may be removed by releasing all the currently being held resources of that process.
 
 -   The final condition is the circular wait condition. Approaches that avoid circular waits include disabling interrupts during critical sections and using a hierarchy to determine a partial ordering of resources. If no obvious hierarchy exists, even the memory address of resources has been used to determine ordering and resources are requested in the increasing order of the enumeration.
 
@@ -677,7 +677,7 @@ Inter-process communication (IPC) refers specifically to the mechanisms an opera
 
 ## Pipes
 
-Programs can be run together such that one program reads the output from another with no need for an explicit intermediate file. This is called piping. The two programs performing the commands may run in parallel with the only storage space being working buffers (Linux allows up to 64K for each buffer) plus whatever work space each command\'s processing requires. In the following example, *command2* takes the output of *command1* as the source of input.
+Programs can be run together such that one program reads the output from another with no need for an explicit intermediate file. This is called piping. The two programs performing the commands may run in parallel with the only storage space being working buffers (Linux allows up to 64K for each buffer) plus whatever work space each command\'s processing requires. In the following example, `command2` takes the output of `command1` as the source of input.
 
 command1 \| command2
 
@@ -689,7 +689,7 @@ command2 \< tmp\_file
 
 rm tmp\_file
 
-But here, *command2* does not start executing until *command1* has finished, and a sufficiently large scratch file is required to hold the intermediate results as well as whatever work space each task requires.
+But here, `command2` does not start executing until `command1` has finished, and a sufficiently large scratch file is required to hold the intermediate results as well as whatever work space each task requires.
 
 ## Files
 
@@ -697,13 +697,13 @@ A record stored on disk, or a record synthesized on demand by a file server, can
 
 ## Shared memory
 
-**Shared memory** is [memory](https://en.wikipedia.org/wiki/Random-access_memory) that may be simultaneously accessed by multiple programs with an intent to provide communication among them or avoid redundant copies. Depending on context, programs may run on a single processor or on multiple separate processors.<sup>[3](#footnote-shared-memory)</sup>
+_Shared memory_ is [memory](https://en.wikipedia.org/wiki/Random-access_memory) that may be simultaneously accessed by multiple programs with an intent to provide communication among them or avoid redundant copies. Depending on context, programs may run on a single processor or on multiple separate processors.<sup>[3](#footnote-shared-memory)</sup>
 
 Since both processes can access the shared memory area like regular working memory, this is a very fast way of communication. On the other hand, it is less scalable, as for example the communicating processes must be running on the same machine (of other IPC methods, only Internet domain sockets can use a [computer network](https://en.wikipedia.org/wiki/Computer_network)), and care must be taken to avoid issues if processes sharing memory are running on separate CPUs and the underlying architecture is not [cache coherent](https://en.wikipedia.org/wiki/Cache_coherence).
 
 ### POSIX example
 
-The following example is taken from the book Operating Systems Main Concepts, by Silberschatz, Galvin and Gagne. It demonstrates the use of shared memory in POSIX environments (like Linux or macOS), and consists of two programs, a producer writing messages into the shared region, and a consumer reading and displaying it on the screen.<sup>[4](#footnote-gcc)</sup>
+The following example demonstrates the use of shared memory in POSIX environments (like Linux or macOS), and consists of two programs, a producer writing messages into the shared region, and a consumer reading and displaying it on the screen.<sup>[4](#footnote-gcc)</sup>
 
 Producer (inspired from [this one](http://www.cse.psu.edu/~deh25/cmpsc473/notes/OSC/Processes/shm-posix-producer-orig.c)):
 ```
@@ -806,9 +806,9 @@ Message passing is used ubiquitously in modern computer software. It is used as 
 
 ## Sockets
 
-A network socket is an endpoint of a connection across a computer network. Today, most communication between computers is based on the Internet Protocol; therefore, most network sockets are Internet sockets. More precisely, a socket is a handle (an abstract reference) that a local program can pass to the networking API to use the connection, for example \"send this data on this socket\". Sockets are internally often simply integers, that identify which connection to use.
+A network socket is an endpoint of a connection across a computer network. Today, most communication between computers is based on the Internet Protocol; therefore, most network sockets are Internet sockets. More precisely, a socket is a handle (an abstract reference) that a local program can pass to the networking API to use the connection, for example _send this data on this socket_. Sockets are internally often simply integers, that identify which connection to use.
 
-A socket API is usually provided by the operating system and allows application programs to control and use network sockets<sup>[5](#footnote-socket)</sup>. Internet socket APIs are usually based on the Berkeley sockets standard. In the Berkeley sockets standard, sockets are a form of file descriptor (a file handle), due to the Unix philosophy that \"everything is a file\", and the analogies between sockets and files: you can read, write, open, and close both. In practice the differences mean the analogy is strained, and one instead use different interfaces (send and receive) on a socket. In inter-process communication, each end will generally have its own socket, but these may use different APIs: they are abstracted by the network protocol.
+A socket API is usually provided by the operating system and allows application programs to control and use network sockets<sup>[5](#footnote-socket)</sup>. Internet socket APIs are usually based on the Berkeley sockets standard. In the Berkeley sockets standard, sockets are a form of file descriptor (a file handle), due to the Unix philosophy that _everything is a file_, and the analogies between sockets and files: you can read, write, open, and close both. In practice the differences mean the analogy is strained, and one instead use different interfaces (send and receive) on a socket. In inter-process communication, each end will generally have its own socket, but these may use different APIs: they are abstracted by the network protocol.
 
 A socket address is the combination of an IP address and a port number, much like one end of a telephone connection is the combination of a phone number and an extension. Sockets need not have an address (for example for only sending data), but if a program binds a socket to an address, the socket can be used to receive data sent to that address. Based on this address, internet sockets deliver incoming data packets to the appropriate application process or thread.
 
@@ -828,29 +828,29 @@ Several methods have been devised that increase the effectiveness of memory mana
 
 A memory address is a data concept used at various levels by software and hardware to access the computer\'s primary storage memory. Memory addresses are fixed-length sequences of digits conventionally displayed and manipulated as unsigned integers. Such numerical semantic bases itself upon features of CPU (such as the instruction pointer and incremental address registers), as well upon use of the memory like an array endorsed by various programming languages.
 
-A digital computer\'s memory, more specifically main memory, consists of many memory locations, each having a *physical address*, a code, which the CPU (or other device) can use to access it. Generally, only system software, i.e. the BIOS, operating systems, and some specialized utility programs (e.g., memory testers), address physical memory using machine code operands or processor registers, instructing the CPU to direct a hardware device, called the memory controller, to use the memory bus or system bus, or separate control, address and data busses, to execute the program\'s commands.
+A digital computer\'s memory, more specifically main memory, consists of many memory locations, each having a _physical address_, a code, which the CPU (or other device) can use to access it. Generally, only system software, i.e. the BIOS, operating systems, and some specialized utility programs (e.g., memory testers), address physical memory using machine code operands or processor registers, instructing the CPU to direct a hardware device, called the memory controller, to use the memory bus or system bus, or separate control, address and data busses, to execute the program\'s commands.
 
-A computer program uses memory addresses to execute machine code, store and retrieve data. Most application programs do not have a knowledge about physical addresses. Rather, they address *logical addresses*, or virtual addresses, using computer\'s memory management unit and operating system memory mapping.
+A computer program uses memory addresses to execute machine code, store and retrieve data. Most application programs do not have a knowledge about physical addresses. Rather, they address _logical addresses_, or virtual addresses, using computer\'s memory management unit and operating system memory mapping.
 
 ### Address space
 
 In modern multitasking environment, an application process usually has in its address space (or spaces) chunks of memory of following types:
 
 -   Machine code, including:
-  -   program\'s own code (historically known as code segment or text segment);
-  -   shared libraries.
+    -   program\'s own code (historically known as code segment or text segment);
+    -   shared libraries.
 -   Data, including:
-  -   initialized data (data segment);
-  -   uninitialized (but allocated) variables;
-  -   run-time stack;
-  -   heap;
-  -   shared memory and memory mapped files.
+    -   initialized data (data segment);
+    -   uninitialized (but allocated) variables;
+    -   run-time stack;
+    -   heap;
+    -   shared memory and memory mapped files.
 
 Some parts of address space may be not mapped at all.
 
 #### Stack
 
-Stacks in computing architectures are regions of memory where data is added (*push* operation) or removed (*pop* operation) in a last-in-first-out (LIFO) manner.
+Stacks in computing architectures are regions of memory where data is added (_push_ operation) or removed (_pop_ operation) in a last-in-first-out (LIFO) manner.
 
 In most modern computer systems, each thread has a reserved region of memory referred to as its stack. When a function executes, it may add some of its state data to the top of the stack; when the function exits it is responsible for removing that data from the stack. Other data stored in the stack includes local variables, return point, function parameters.
 
@@ -862,9 +862,9 @@ A thread\'s assigned stack size can be as small as a few dozen kilobytes. Alloca
 
 #### Heap / Dynamic allocation
 
-The task of fulfilling an allocation request consists of locating a block of unused memory of sufficient size. Memory requests are satisfied by allocating portions from a large pool of memory called the heap. At any given time, some parts of the heap are in use, while some are \"free\" (unused) and thus available for future allocations.
+The task of fulfilling an allocation request consists of locating a block of unused memory of sufficient size. Memory requests are satisfied by allocating portions from a large pool of memory called the heap. At any given time, some parts of the heap are in use, while some are _free_ (unused) and thus available for future allocations.
 
-Several issues complicate the implementation, such as external fragmentation, which arises when there are many small gaps between allocated memory blocks, which invalidates their use for an allocation request. The memory management system must track outstanding allocations to ensure that they do not overlap, and that no memory is ever \"lost\" as a memory leak. The specific dynamic memory allocation algorithm implemented can impact performance significantly.
+Several issues complicate the implementation, such as external fragmentation, which arises when there are many small gaps between allocated memory blocks, which invalidates their use for an allocation request. The memory management system must track outstanding allocations to ensure that they do not overlap, and that no memory is ever _lost_ as a memory leak. The specific dynamic memory allocation algorithm implemented can impact performance significantly.
 
 ## Memory management techniques
 
@@ -878,13 +878,13 @@ Single allocation is the simplest memory management technique. All the computer\
 
 Partitioned allocation divides primary memory into multiple memory partitions, usually contiguous areas of memory. Each partition might contain all the information for a specific job or task. Memory management consists of allocating a partition to a job when it starts and un-allocating it when the job ends.
 
-Re-allocable partitions are able to be compacted to provide larger chunks of contiguous physical memory. Compaction moves \"in-use\" areas of memory to eliminate \"holes\" or unused areas of memory caused by process termination in order to create larger contiguous free areas.
+Re-allocable partitions are able to be compacted to provide larger chunks of contiguous physical memory. Compaction moves _in-use_ areas of memory to eliminate _holes_ or unused areas of memory caused by process termination in order to create larger contiguous free areas.
 
 Some systems allow partitions to be swapped out to secondary storage to free additional memory. When a partition is on secondary storage it cannot be used until it is swapped back in. Swapping increases multi-tasking in the system at expenses of slower performance due to the additional time required for each transfer.
 
 #### External fragmentation
 
-External fragmentation arises when free memory is separated into small blocks and is interspersed by allocated memory. It is a weakness of certain storage allocation algorithms, when they fail to order memory used by programs efficiently. The result is that, although free storage is available, it is effectively unusable because it is divided into pieces that are too small individually to satisfy the demands of the application. The term \"external\" refers to the fact that the unusable storage is outside the allocated regions.
+External fragmentation arises when free memory is separated into small blocks and is interspersed by allocated memory. It is a weakness of certain storage allocation algorithms, when they fail to order memory used by programs efficiently. The result is that, although free storage is available, it is effectively unusable because it is divided into pieces that are too small individually to satisfy the demands of the application. The term _external_ refers to the fact that the unusable storage is outside the allocated regions.
 
 For example, consider a situation wherein a program allocates 3 continuous blocks of memory and then frees the middle block. The memory allocator can use this free block of memory for future allocations. However, it cannot use this block if the memory to be allocated is larger in size than this free block.
 
@@ -920,7 +920,7 @@ Page tables are used to translate the virtual addresses seen by the application 
 
 The page table lookup may fail for two reasons. The first is if there is no translation available for the virtual address, meaning that virtual address is invalid. This will typically occur because of a programming error, and the operating system must take some action to deal with the problem. On modern operating systems, it will cause a segmentation fault in the offending program.
 
-The page table lookup may also fail if the page is not resident in physical memory. This will occur if the requested page has been moved out of physical memory to make room for another page. In this case, the page is paged out to a secondary store located on a medium such as a hard disk drive (this secondary store, or \"backing store\", is often called a \"swap partition\" if it is a disk partition, or a \"swap file\" or \"page file\" if it is a file). When this happens, the page needs to be taken from disk and put back into physical memory. A similar mechanism is used for memory-mapped files, which are mapped to virtual memory and loaded to physical memory on demand.
+The page table lookup may also fail if the page is not resident in physical memory. This will occur if the requested page has been moved out of physical memory to make room for another page. In this case, the page is paged out to a secondary store located on a medium such as a hard disk drive (this secondary store, or _backing store_, is often called a _swap partition_ if it is a disk partition, or a _swap file_ or _page file_ if it is a file). When this happens, the page needs to be taken from disk and put back into physical memory. A similar mechanism is used for memory-mapped files, which are mapped to virtual memory and loaded to physical memory on demand.
 
 When physical memory is not full this is a simple operation; the page is written back into physical memory, the page table and TLB are updated, and the instruction is restarted. However, when physical memory is full, one or more pages in physical memory will need to be paged out to make room for the requested page. The page table needs to be updated to mark that the pages that were previously in physical memory are no longer there, and to mark that the page that was on disk is now in physical memory. The TLB also needs to be updated, including removal of the paged-out page from it, and the instruction restarted. Which page to page out is the subject of page replacement algorithms.
 
@@ -950,7 +950,7 @@ When transferring from a rotational disk, much of the delay is caused by seek ti
 
 ### Segmentation
 
-Segmented memory is the only memory management technique that does not provide the user\'s program with a \'linear and contiguous address space.\" Segments are areas of memory that usually correspond to a logical grouping of information such as a code procedure or a data array. Segments require hardware support in the form of a segment table which usually contains the physical address of the segment in memory, its size, and other data such as access protection bits and status (swapped in, swapped out, etc.) Addresses in a segmented system usually consist of the segment id and an offset relative to the segment base address, defined to be offset zero.
+Segmented memory is the only memory management technique that does not provide the user\'s program with a _linear and contiguous address space._ Segments are areas of memory that usually correspond to a logical grouping of information such as a code procedure or a data array. Segments require hardware support in the form of a segment table which usually contains the physical address of the segment in memory, its size, and other data such as access protection bits and status (swapped in, swapped out, etc.) Addresses in a segmented system usually consist of the segment id and an offset relative to the segment base address, defined to be offset zero.
 
 Segmentation allows better access protection than other schemes because memory references are relative to a specific segment and the hardware will not permit the application to reference memory not defined for that segment.
 
@@ -1034,9 +1034,9 @@ Garbage collection is often portrayed as the opposite of [manual memory manageme
 
 Garbage collection frees the programmer from manually dealing with memory deallocation. As a result, certain categories of bugs are eliminated or substantially reduced:
 
--   *Dangling pointer bugs*, which occur when a piece of memory is freed while there are still pointers to it, and one of those pointers is dereferenced. By then the memory may have been reassigned to another use, with unpredictable results.
--   *Double free bugs*, which occur when the program tries to free a region of memory that has already been freed, and perhaps already been allocated again.
--   Certain kinds of *memory leaks*, in which a program fails to free memory occupied by objects that have become [unreachable](https://en.wikipedia.org/wiki/Unreachable), which can lead to memory exhaustion. Garbage collection typically does not deal with the unbounded accumulation of data that is reachable, but that will not be used by the program.
+-   **Dangling pointer bugs**, which occur when a piece of memory is freed while there are still pointers to it, and one of those pointers is dereferenced. By then the memory may have been reassigned to another use, with unpredictable results.
+-   **Double free bugs**, which occur when the program tries to free a region of memory that has already been freed, and perhaps already been allocated again.
+-   Certain kinds of **memory leaks**, in which a program fails to free memory occupied by objects that have become [unreachable](https://en.wikipedia.org/wiki/Unreachable), which can lead to memory exhaustion. Garbage collection typically does not deal with the unbounded accumulation of data that is reachable, but that will not be used by the program.
 -   Efficient implementations of persistent data structures.
 
 Typically, GC has certain disadvantages, including consuming additional resources, performance impacts, possible stalls in program execution, and incompatibility with manual resource management.
