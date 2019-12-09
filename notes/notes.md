@@ -128,14 +128,14 @@ A real-time operating system is an operating system that guarantees to process e
 
 ## Main operating systems
 
--  Linux (including distros like Debian, Ubuntu, Fedora, CentOS, SuSE)
--  Android
--  BSD
--  macOS
--  iOS
--  FreeBSD
--  Solaris
--  Windows
+-   Linux (including distros like Debian, Ubuntu, Fedora, CentOS, SuSE)
+-   Android
+-   BSD
+-   macOS
+-   iOS
+-   FreeBSD
+-   Solaris
+-   Windows
 
 ## Kernel
 
@@ -351,27 +351,27 @@ int main(int argc, char* argv[])
 
 Redirection is a function common to most command-line interpreters, including the various Unix shells that can redirect standard streams to user-specified locations (usually a file). In Unix-like operating systems, a single hyphen-minus by itself is usually a special value specifying that a program should handle data coming from the standard input or send data to the standard output. Examples:
 
--  Executes *command* and place output in *output\_file* instead of displaying it at the terminal. The content of *output\_file* is replaced with each execution.
+-   Executes *command* and place output in *output\_file* instead of displaying it at the terminal. The content of *output\_file* is replaced with each execution.
 
   ```command > output_file```
 
--  Similar to previous one, but output is appended at the end of *output\_file* instead of replacing.
+-   Similar to previous one, but output is appended at the end of *output\_file* instead of replacing.
 
   ```command >> output_file```
 
--  Executes *command* with *input\_file* as the source of input, as opposed to the keyboard.
+-   Executes *command* with *input\_file* as the source of input, as opposed to the keyboard.
 
   ```command < input_file```
 
--  Executes *command* and take input from *input\_file* and place output in *output\_file*.
+-   Executes *command* and take input from *input\_file* and place output in *output\_file*.
 
   ```command < input_file > output_file```
 
--  Redirects the standard error stream to *error\_file* and output to *output\_file*.
+-   Redirects the standard error stream to *error\_file* and output to *output\_file*.
 
   ```command 2> error_file > output_file```
 
--  Redirects both *stderr* and *stdout* to the same file, merging error messages and standard output.
+-   Redirects both *stderr* and *stdout* to the same file, merging error messages and standard output.
 
   ```command 2>&1 output_file```
 
@@ -401,11 +401,11 @@ A computer program is a passive collection of instructions; a process is the act
 
 In general, a computer system process consists of (or is said to own) the following resources:
 
--  An image of the executable machine code associated with a program.
--  Memory (typically some region of virtual memory); which includes the executable code, process-specific data (input and output), a call stack (to keep track of active subroutines and/or other events), and a heap to hold intermediate computation data generated during run time.
--  Operating system descriptors of resources that are allocated to the process, such as file descriptors (Unix terminology) or handles (Windows), and data sources and sinks.
--  Security attributes, such as the process owner and the process\' set of permissions (allowable operations).
--  Processor state (context), such as the content of registers, physical memory addressing, etc. The state is typically stored in computer registers when the process is executing, and in memory otherwise.
+-   An image of the executable machine code associated with a program.
+-   Memory (typically some region of virtual memory); which includes the executable code, process-specific data (input and output), a call stack (to keep track of active subroutines and/or other events), and a heap to hold intermediate computation data generated during run time.
+-   Operating system descriptors of resources that are allocated to the process, such as file descriptors (Unix terminology) or handles (Windows), and data sources and sinks.
+-   Security attributes, such as the process owner and the process\' set of permissions (allowable operations).
+-   Processor state (context), such as the content of registers, physical memory addressing, etc. The state is typically stored in computer registers when the process is executing, and in memory otherwise.
 
 The operating system holds most of this information about active processes in data structures called *process control blocks*. Any subset of the resources, typically at least the processor state, may be associated with each of the process\' threads in operating systems that support threads or child (daughter) processes.
 
@@ -493,17 +493,17 @@ Multithreading is mainly found in multitasking operating systems. Multithreading
 
 Multithreaded applications have the following advantages:
 
--  **Responsiveness**: multithreading can allow an application to remain responsive to input. In a single-threaded program, if the main execution thread blocks on a long-running task, the entire application can appear to freeze. By moving such long-running tasks to a worker thread that runs concurrently with the main execution thread, it is possible for the application to remain responsive to user input while executing tasks in the background. On the other hand, in most cases multithreading is not the only way to keep a program responsive, with non-blocking I/O and/or Unix signals being available for gaining similar results.
--  **Faster execution**: this advantage of a multithreaded program allows it to operate faster on computer systems that have multiple CPUs or one or more multi-core CPUs, or across a cluster of machines, because the threads of the program naturally lend themselves to parallel execution, assuming sufficient independence (that they do not need to wait for each other).
--  **Lower resource consumption**: using threads, an application can serve multiple clients concurrently using fewer resources than it would need when using multiple process copies of itself. For example, the Apache HTTP server uses thread pools: a pool of listener threads for listening to incoming requests, and a pool of server threads for processing those requests.
--  **Better system utilization**: as an example, a file system using multiple threads can achieve higher throughput and lower latency since data in a faster medium (such as cache memory) can be retrieved by one thread while another thread retrieves data from a slower medium (such as external storage) without either thread waiting for the other to complete.
--  **Simplified sharing and communication**: unlike processes, which require a message passing or shared memory mechanism to perform inter-process communication (IPC), threads can communicate through data, code and files they already share.
--  **Parallelization**: applications looking to utilize multicore or multi-CPU systems can use multithreading to split data and tasks into parallel subtasks and let the underlying architecture manage how the threads run, either concurrently on a single core or in parallel on multiple cores. GPU computing environments like CUDA and OpenCL use the multithreading model where dozens to hundreds of threads run in parallel on a large number of cores.
+-   **Responsiveness**: multithreading can allow an application to remain responsive to input. In a single-threaded program, if the main execution thread blocks on a long-running task, the entire application can appear to freeze. By moving such long-running tasks to a worker thread that runs concurrently with the main execution thread, it is possible for the application to remain responsive to user input while executing tasks in the background. On the other hand, in most cases multithreading is not the only way to keep a program responsive, with non-blocking I/O and/or Unix signals being available for gaining similar results.
+-   **Faster execution**: this advantage of a multithreaded program allows it to operate faster on computer systems that have multiple CPUs or one or more multi-core CPUs, or across a cluster of machines, because the threads of the program naturally lend themselves to parallel execution, assuming sufficient independence (that they do not need to wait for each other).
+-   **Lower resource consumption**: using threads, an application can serve multiple clients concurrently using fewer resources than it would need when using multiple process copies of itself. For example, the Apache HTTP server uses thread pools: a pool of listener threads for listening to incoming requests, and a pool of server threads for processing those requests.
+-   **Better system utilization**: as an example, a file system using multiple threads can achieve higher throughput and lower latency since data in a faster medium (such as cache memory) can be retrieved by one thread while another thread retrieves data from a slower medium (such as external storage) without either thread waiting for the other to complete.
+-   **Simplified sharing and communication**: unlike processes, which require a message passing or shared memory mechanism to perform inter-process communication (IPC), threads can communicate through data, code and files they already share.
+-   **Parallelization**: applications looking to utilize multicore or multi-CPU systems can use multithreading to split data and tasks into parallel subtasks and let the underlying architecture manage how the threads run, either concurrently on a single core or in parallel on multiple cores. GPU computing environments like CUDA and OpenCL use the multithreading model where dozens to hundreds of threads run in parallel on a large number of cores.
 
 Multithreading has the following drawbacks:
 
--  **Synchronization**: since threads share the same address space, the programmer must be careful to avoid race conditions and other non-intuitive behaviors. In order for data to be correctly manipulated, threads will often need to rendezvous in time in order to process the data in the correct order. Threads may also require mutually exclusive operations (often implemented using semaphores) in order to prevent common data from being simultaneously modified or read while in the process of being modified. Careless use of such primitives can lead to deadlocks.
--  **Thread crash crashes the whole process**: an illegal operation performed by a thread crashes the entire process; therefore, one misbehaving thread can disrupt the processing of all the other threads in the application.
+-   **Synchronization**: since threads share the same address space, the programmer must be careful to avoid race conditions and other non-intuitive behaviors. In order for data to be correctly manipulated, threads will often need to rendezvous in time in order to process the data in the correct order. Threads may also require mutually exclusive operations (often implemented using semaphores) in order to prevent common data from being simultaneously modified or read while in the process of being modified. Careless use of such primitives can lead to deadlocks.
+-   **Thread crash crashes the whole process**: an illegal operation performed by a thread crashes the entire process; therefore, one misbehaving thread can disrupt the processing of all the other threads in the application.
 
 ## Programming considerations
 
@@ -570,23 +570,23 @@ By carefully controlling which resources are modified inside and outside the cri
 
 Four conditions are necessary to have a good solution to the critical section problem:
 
--  No two processes may be at the same moment inside their critical sections.
+-   No two processes may be at the same moment inside their critical sections.
 
--  No assumptions are made about relative speeds of processes or number of CPUs.
+-   No assumptions are made about relative speeds of processes or number of CPUs.
 
--  No process outside its critical section should block other processes.
+-   No process outside its critical section should block other processes.
 
--  No process should wait arbitrary long to enter its critical section.
+-   No process should wait arbitrary long to enter its critical section.
 
 ### Mutex
 
 A mutex (from *mut*ual *ex*clusion) is a synchronization primitive that can be used to protect shared data from being simultaneously accessed by multiple threads. It offers exclusive, non-recursive ownership semantics:
 
--  A calling thread owns a mutex from the time that it successfully calls either *lock* or *try\_lock* until it calls *unlock*.
+-   A calling thread owns a mutex from the time that it successfully calls either *lock* or *try\_lock* until it calls *unlock*.
 
--  When a thread owns a mutex, all other threads will block (for calls to *lock*) or receive a false return value (for *try\_lock*) if they attempt to claim ownership of the mutex.
+-   When a thread owns a mutex, all other threads will block (for calls to *lock*) or receive a false return value (for *try\_lock*) if they attempt to claim ownership of the mutex.
 
--  A calling thread must not own the mutex prior to calling *lock* or *try\_lock*.
+-   A calling thread must not own the mutex prior to calling *lock* or *try\_lock*.
 
 In addition, a lock guard (*lock\_guard* in C++11) is a mutex wrapper that provides a convenient mechanism for owning a mutex for the duration of a scoped block.
 
@@ -647,13 +647,13 @@ Deadlock is a common problem in multiprocessing systems, parallel computing and 
 
 Four conditions must be satisfied to generate a deadlock:
 
--  Mutual Exclusion Condition: The resources involved are non-shareable. At least one resource (thread) must be held in a non-shareable mode, that is, only one process at a time claims exclusive control of the resource. If another process requests that resource, the requesting process must be delayed until the resource has been released.
+-   Mutual Exclusion Condition: The resources involved are non-shareable. At least one resource (thread) must be held in a non-shareable mode, that is, only one process at a time claims exclusive control of the resource. If another process requests that resource, the requesting process must be delayed until the resource has been released.
 
--  Hold and Wait Condition: Requesting process hold already owned resources while waiting for requested resources. There must exist a process that is holding a resource already allocated to it while waiting for additional resource that are currently being held by other processes.
+-   Hold and Wait Condition: Requesting process hold already owned resources while waiting for requested resources. There must exist a process that is holding a resource already allocated to it while waiting for additional resource that are currently being held by other processes.
 
--  No-Preemptive Condition: Resources already allocated to a process cannot be preempted. Resources cannot be removed from the processes are used to completion or released voluntarily by the process holding it.
+-   No-Preemptive Condition: Resources already allocated to a process cannot be preempted. Resources cannot be removed from the processes are used to completion or released voluntarily by the process holding it.
 
--  Circular Wait Condition: The processes in the system form a circular list or chain where each process in the list is waiting for a resource held by the next process in the list.
+-   Circular Wait Condition: The processes in the system form a circular list or chain where each process in the list is waiting for a resource held by the next process in the list.
 
 ### Deadlock handling
 
@@ -663,13 +663,13 @@ Most current operating systems cannot prevent a deadlock from occurring. When a 
 
 Deadlock prevention works by preventing one of the four conditions from occurring.
 
--  Removing the mutual exclusion condition means that no process will have exclusive access to a resource. This proves impossible for resources that cannot be spooled. But even with spooled resources, deadlock could still occur. Algorithms that avoid mutual exclusion are called non-blocking synchronization algorithms.
+-   Removing the mutual exclusion condition means that no process will have exclusive access to a resource. This proves impossible for resources that cannot be spooled. But even with spooled resources, deadlock could still occur. Algorithms that avoid mutual exclusion are called non-blocking synchronization algorithms.
 
--  The hold and wait or resource holding conditions may be removed by requiring processes to request all the resources they will need before starting up (or before embarking upon a particular set of operations). This advance knowledge is frequently difficult to satisfy and, in any case, is an inefficient use of resources. Another way is to require processes to request resources only when it has none. Thus, first they must release all their currently held resources before requesting all the resources they will need from scratch. This too is often impractical. It is so because resources may be allocated and remain unused for long periods. Also, a process requiring a popular resource may have to wait indefinitely, as such a resource may always be allocated to some process, resulting in resource starvation.
+-   The hold and wait or resource holding conditions may be removed by requiring processes to request all the resources they will need before starting up (or before embarking upon a particular set of operations). This advance knowledge is frequently difficult to satisfy and, in any case, is an inefficient use of resources. Another way is to require processes to request resources only when it has none. Thus, first they must release all their currently held resources before requesting all the resources they will need from scratch. This too is often impractical. It is so because resources may be allocated and remain unused for long periods. Also, a process requiring a popular resource may have to wait indefinitely, as such a resource may always be allocated to some process, resulting in resource starvation.
 
--  The no preemption condition may also be difficult or impossible to avoid as a process must be able to have a resource for a certain amount of time, or the processing outcome may be inconsistent or thrashing may occur. However, inability to enforce preemption may interfere with a priority algorithm. Preemption of a \"locked out\" resource generally implies a rollback, and is to be avoided, since it is very costly in overhead. Algorithms that allow preemption include lock-free and wait-free algorithms and optimistic concurrency control. If a process holding some resources and requests for some another resource(s) that cannot be immediately allocated to it, the condition may be removed by releasing all the currently being held resources of that process.
+-   The no preemption condition may also be difficult or impossible to avoid as a process must be able to have a resource for a certain amount of time, or the processing outcome may be inconsistent or thrashing may occur. However, inability to enforce preemption may interfere with a priority algorithm. Preemption of a \"locked out\" resource generally implies a rollback, and is to be avoided, since it is very costly in overhead. Algorithms that allow preemption include lock-free and wait-free algorithms and optimistic concurrency control. If a process holding some resources and requests for some another resource(s) that cannot be immediately allocated to it, the condition may be removed by releasing all the currently being held resources of that process.
 
--  The final condition is the circular wait condition. Approaches that avoid circular waits include disabling interrupts during critical sections and using a hierarchy to determine a partial ordering of resources. If no obvious hierarchy exists, even the memory address of resources has been used to determine ordering and resources are requested in the increasing order of the enumeration.
+-   The final condition is the circular wait condition. Approaches that avoid circular waits include disabling interrupts during critical sections and using a hierarchy to determine a partial ordering of resources. If no obvious hierarchy exists, even the memory address of resources has been used to determine ordering and resources are requested in the increasing order of the enumeration.
 
 # Inter-process communication (IPC)
 
@@ -836,15 +836,15 @@ A computer program uses memory addresses to execute machine code, store and retr
 
 In modern multitasking environment, an application process usually has in its address space (or spaces) chunks of memory of following types:
 
--  Machine code, including:
-  -  program\'s own code (historically known as code segment or text segment);
-  -  shared libraries.
--  Data, including:
-  -  initialized data (data segment);
-  -  uninitialized (but allocated) variables;
-  -  run-time stack;
-  -  heap;
-  -  shared memory and memory mapped files.
+-   Machine code, including:
+  -   program\'s own code (historically known as code segment or text segment);
+  -   shared libraries.
+-   Data, including:
+  -   initialized data (data segment);
+  -   uninitialized (but allocated) variables;
+  -   run-time stack;
+  -   heap;
+  -   shared memory and memory mapped files.
 
 Some parts of address space may be not mapped at all.
 
@@ -972,13 +972,13 @@ Memory leaks may not be serious or even detectable by normal means. In modern op
 
 Much more serious leaks include those:
 
--  where the program runs for an extended time and consumes additional memory over time, such as background tasks on servers, but especially in embedded devices which may be left running for many years
--  where new memory is allocated frequently for one-time tasks, such as when rendering the frames of a computer game or animated video
--  where the program can request memory --- such as shared memory --- that is not released, even when the program terminates
--  where memory is very limited, such as in an embedded system or portable device
--  where the leak occurs within the operating system or memory manager
--  when a system device driver causes the leak
--  running on an operating system that does not automatically release memory on program termination. Often on such machines if memory is lost, it can only be reclaimed by a reboot.
+-   where the program runs for an extended time and consumes additional memory over time, such as background tasks on servers, but especially in embedded devices which may be left running for many years
+-   where new memory is allocated frequently for one-time tasks, such as when rendering the frames of a computer game or animated video
+-   where the program can request memory --- such as shared memory --- that is not released, even when the program terminates
+-   where memory is very limited, such as in an embedded system or portable device
+-   where the leak occurs within the operating system or memory manager
+-   when a system device driver causes the leak
+-   running on an operating system that does not automatically release memory on program termination. Often on such machines if memory is lost, it can only be reclaimed by a reboot.
 
 #### Dangling pointers and wild pointers
 
@@ -1034,10 +1034,10 @@ Garbage collection is often portrayed as the opposite of [manual memory manageme
 
 Garbage collection frees the programmer from manually dealing with memory deallocation. As a result, certain categories of bugs are eliminated or substantially reduced:
 
--  *Dangling pointer bugs*, which occur when a piece of memory is freed while there are still pointers to it, and one of those pointers is dereferenced. By then the memory may have been reassigned to another use, with unpredictable results.
--  *Double free bugs*, which occur when the program tries to free a region of memory that has already been freed, and perhaps already been allocated again.
--  Certain kinds of *memory leaks*, in which a program fails to free memory occupied by objects that have become [unreachable](https://en.wikipedia.org/wiki/Unreachable), which can lead to memory exhaustion. Garbage collection typically does not deal with the unbounded accumulation of data that is reachable, but that will not be used by the program.
--  Efficient implementations of persistent data structures.
+-   *Dangling pointer bugs*, which occur when a piece of memory is freed while there are still pointers to it, and one of those pointers is dereferenced. By then the memory may have been reassigned to another use, with unpredictable results.
+-   *Double free bugs*, which occur when the program tries to free a region of memory that has already been freed, and perhaps already been allocated again.
+-   Certain kinds of *memory leaks*, in which a program fails to free memory occupied by objects that have become [unreachable](https://en.wikipedia.org/wiki/Unreachable), which can lead to memory exhaustion. Garbage collection typically does not deal with the unbounded accumulation of data that is reachable, but that will not be used by the program.
+-   Efficient implementations of persistent data structures.
 
 Typically, GC has certain disadvantages, including consuming additional resources, performance impacts, possible stalls in program execution, and incompatibility with manual resource management.
 
@@ -1059,13 +1059,13 @@ The STL provides a ready-made set of common classes for C++, such as containers 
 
 Containers are objects to store data. The standard sequence containers include vector, deque, and list. The standard associative containers are set, multiset, map, multimap, hash\_set, hash\_map, hash\_multiset and hash\_multimap. There are also container adaptors queue, priority\_queue, and stack, that are containers with specific interface, using other containers as implementation.
 
--  ```std::vector```: a dynamic array, capable of random access (in this sense like C arrays) with the ability to resize itself automatically when inserting or erasing an object. Inserting an element to the back of the vector at the end takes amortized constant time. Removing the last element takes only constant time, because no resizing happens. Inserting and erasing at the beginning or in the middle is linear in time.
--  ```std::list```: a doubly linked list; elements are not stored in contiguous memory. Opposite performance from a vector. Slow lookup and access (linear time), but once a position has been found, quick insertion and deletion (constant time).
--  ```std::queue```: provides FIFO queue interface in terms of push, pop, front, and back operations.
--  ```std::priority_queue```: provides priority queue interface in terms of push/pop/top operations (the element with the highest priority is on top). Elements should additionally support comparison (to determine which element has a higher priority and should be popped first).
--  ```std::stack```: provides LIFO stack interface in terms of push/pop/top operations (the last-inserted element is on top).
--  ```std::set```: a mathematical set; inserting/erasing elements in a set does not invalidate iterators pointing in the set. Provides set operations union, intersection, difference, symmetric difference and test of inclusion. Type of data must implement comparison operator \< or custom comparator function must be specified; such comparison operator or comparator function must guarantee strict weak ordering; otherwise behavior is undefined.
--  ```std::map```: an associative array; allows mapping from one data item (a key) to another (a value). Type of key must implement comparison operator \< or custom comparator function must be specified; such comparison operator or comparator function must guarantee strict weak ordering; otherwise behavior is undefined.
+-   ```std::vector```: a dynamic array, capable of random access (in this sense like C arrays) with the ability to resize itself automatically when inserting or erasing an object. Inserting an element to the back of the vector at the end takes amortized constant time. Removing the last element takes only constant time, because no resizing happens. Inserting and erasing at the beginning or in the middle is linear in time.
+-   ```std::list```: a doubly linked list; elements are not stored in contiguous memory. Opposite performance from a vector. Slow lookup and access (linear time), but once a position has been found, quick insertion and deletion (constant time).
+-   ```std::queue```: provides FIFO queue interface in terms of push, pop, front, and back operations.
+-   ```std::priority_queue```: provides priority queue interface in terms of push/pop/top operations (the element with the highest priority is on top). Elements should additionally support comparison (to determine which element has a higher priority and should be popped first).
+-   ```std::stack```: provides LIFO stack interface in terms of push/pop/top operations (the last-inserted element is on top).
+-   ```std::set```: a mathematical set; inserting/erasing elements in a set does not invalidate iterators pointing in the set. Provides set operations union, intersection, difference, symmetric difference and test of inclusion. Type of data must implement comparison operator \< or custom comparator function must be specified; such comparison operator or comparator function must guarantee strict weak ordering; otherwise behavior is undefined.
+-   ```std::map```: an associative array; allows mapping from one data item (a key) to another (a value). Type of key must implement comparison operator \< or custom comparator function must be specified; such comparison operator or comparator function must guarantee strict weak ordering; otherwise behavior is undefined.
 
 Take a look at these interesting notes from Bjarne Stroustrup (creator of C++) about memory considerations when choosing data structures: https://isocpp.org/blog/2014/06/stroustrup-lists
 
