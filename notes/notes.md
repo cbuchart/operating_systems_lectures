@@ -9,6 +9,95 @@ _These are my private course notes that I've decided to share in order to offer 
 
 _Also, some content was taken from Wikipedia long time ago. When I decided to share the notes I had no list of references. I'll be updating this file to add the missing ones._
 
+# Table of Content
+-   [Basic Concepts on Operating Systems](#basic-concepts-on-operating-systems)
+    -   [What an OS is?](#what-an-os-is-)
+    -   [Types of OSs](#types-of-oss)
+        -   [Single- and multi-tasking](#single--and-multi-tasking)
+        -   [Single- and multi-user](#single--and-multi-user)
+        -   [Distributed](#distributed)
+        -   [Embedded](#embedded)
+        -   [Real-time](#real-time)
+    -   [Main operating systems](#main-operating-systems)
+    -   [Kernel](#kernel)
+    -   [Device drivers](#device-drivers)
+    -   [Firmware](#firmware)
+    -   [Callbacks](#callbacks)
+    -   [Interruptions and exceptions](#interruptions-and-exceptions)
+    -   [Timer](#timer)
+    -   [Modes of operation](#modes-of-operation)
+    -   [System calls](#system-calls)
+    -   [Boot loader](#boot-loader)
+    -   [Standard streams](#standard-streams)
+    -   [Application Programming Interface (API)](#application-programming-interface--api-)
+    -   [User Interface](#user-interface)
+        -   [Command Line Interface (CLI)](#command-line-interface--cli-)
+            -   [Command line arguments](#command-line-arguments)
+            -   [I/O redirection](#i-o-redirection)
+        -   [Graphical User Interface (GUI)](#graphical-user-interface--gui-)
+-   [Process management](#process-management)
+    -   [Process](#process)
+        -   [Process Control Block (PCB)](#process-control-block--pcb-)
+        -   [Process Lifecycle](#process-lifecycle)
+            -   [Created or New](#created-or-new)
+            -   [Ready and Waiting](#ready-and-waiting)
+            -   [Running](#running)
+            -   [Blocked](#blocked)
+            -   [Terminated](#terminated)
+    -   [Threads](#threads)
+    -   [Programming considerations](#programming-considerations)
+-   [Synchronization](#synchronization)
+    -   [Race conditions](#race-conditions)
+    -   [Critical section](#critical-section)
+    -   [Solution](#solution)
+        -   [Mutex](#mutex)
+    -   [Synchronization problems](#synchronization-problems)
+        -   [Producer-consumer](#producer-consumer)
+        -   [Readers-writers](#readers-writers)
+    -   [Deadlock](#deadlock)
+        -   [Deadlock handling](#deadlock-handling)
+            -   [Prevention](#prevention)
+-   [Inter-process communication (IPC)](#inter-process-communication--ipc-)
+    -   [Pipes](#pipes)
+    -   [Files](#files)
+    -   [Shared memory](#shared-memory)
+        -   [POSIX example](#posix-example)
+    -   [Message passing](#message-passing)
+    -   [Sockets](#sockets)
+-   [Main memory management](#main-memory-management)
+    -   [Addressing](#addressing)
+        -   [Address space](#address-space)
+            -   [Stack](#stack)
+            -   [Heap / Dynamic allocation](#heap---dynamic-allocation)
+    -   [Memory management techniques](#memory-management-techniques)
+        -   [Single contiguous allocation](#single-contiguous-allocation)
+        -   [Partitioned allocation](#partitioned-allocation)
+            -   [External fragmentation](#external-fragmentation)
+        -   [Paging](#paging)
+        -   [Virtual memory](#virtual-memory)
+            -   [Page faults](#page-faults)
+            -   [Page size](#page-size)
+            -   [Page size versus page table size](#page-size-versus-page-table-size)
+            -   [Page size versus TLB usage](#page-size-versus-tlb-usage)
+            -   [Internal fragmentation of pages](#internal-fragmentation-of-pages)
+            -   [Page size versus disk access](#page-size-versus-disk-access)
+        -   [Segmentation](#segmentation)
+    -   [Programming considerations](#programming-considerations-1)
+        -   [Problems in application memory management](#problems-in-application-memory-management)
+            -   [Memory leaks](#memory-leaks)
+            -   [Dangling pointers and wild pointers](#dangling-pointers-and-wild-pointers)
+            -   [Out-of-bound access](#out-of-bound-access)
+        -   [Automatic memory management](#automatic-memory-management)
+            -   [Garbage collection](#garbage-collection)
+            -   [Reference counting](#reference-counting)
+        -   [Standard Template Library (STL)](#standard-template-library--stl-)
+            -   [Containers](#containers)
+            -   [Algorithms](#algorithms)
+            -   [Quick example](#quick-example)
+            -   [Comparison among vector, dynamic and static arrays](#comparison-among-vector--dynamic-and-static-arrays)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 # Basic Concepts on Operating Systems
 
 ## What an OS is?
@@ -368,7 +457,7 @@ int main()
 
 On Windows systems, a new process is started using the *CreateProcess* function, specifying the command or application to be executed as well as different properties and context information.
 
-#### Ready and waiting
+#### Ready and Waiting
 
 A \"ready\" or \"waiting\" process has been loaded into main memory and is awaiting execution on a CPU (to be context switched onto the CPU by the dispatcher, or short-term scheduler). There may be many \"ready\" processes at any one point of the system\'s execution---for example, in a one-processor system, only one process can be executing at any one time, and all other \"concurrently executing\" processes will be waiting for execution.
 
@@ -394,11 +483,11 @@ On a single processor, multithreading is generally implemented by time slicing (
 
 Threads differ from traditional multitasking operating system processes in that:
 
--  processes are typically independent, while threads exist as subsets of a process
--  processes carry considerably more state information than threads, whereas multiple threads within a process share process state as well as memory and other resources
--  processes have separate address spaces, whereas threads share their address space
--  processes interact only through system-provided inter-process communication mechanisms
--  context switching between threads in the same process is typically faster than context switching between processes.
+-   processes are typically independent, while threads exist as subsets of a process
+-   processes carry considerably more state information than threads, whereas multiple threads within a process share process state as well as memory and other resources
+-   processes have separate address spaces, whereas threads share their address space
+-   processes interact only through system-provided inter-process communication mechanisms
+-   context switching between threads in the same process is typically faster than context switching between processes.
 
 Multithreading is mainly found in multitasking operating systems. Multithreading is a widespread programming and execution model that allows multiple threads to exist within the context of a single process. These threads share the process\'s resources, but are able to execute independently. The threaded programming model provides developers with a useful abstraction of concurrent execution. Multithreading can also be applied to a single process to enable parallel execution on a multiprocessing system.
 
