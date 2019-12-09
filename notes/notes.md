@@ -202,7 +202,7 @@ A system call is how a program requests a service from an [operating system](htt
 
 ## Boot loader
 
-A boot loader is a computer program that loads an operating system or some other system software for the computer after completion of the power-on self-tests[^1]; it is the loader for the operating system itself. Within the hard reboot process, it runs after completion of the self-tests, then loads and runs the software. A boot loader is loaded into main memory from persistent memory, such as a hard disk drive or, in some older computers, from a medium such as punched cards, punched tape, or magnetic tape. The boot loader then loads and executes the processes that finalize the boot. Like POST processes, the boot loader code comes from a \"hard-wired\" and persistent location; if that location is too limited for some reason, that primary boot loader calls a second-stage boot loader or a secondary program loader.
+A boot loader is a computer program that loads an operating system or some other system software for the computer after completion of the power-on self-tests<sup>[1](#footnote-post)</sup>; it is the loader for the operating system itself. Within the hard reboot process, it runs after completion of the self-tests, then loads and runs the software. A boot loader is loaded into main memory from persistent memory, such as a hard disk drive or, in some older computers, from a medium such as punched cards, punched tape, or magnetic tape. The boot loader then loads and executes the processes that finalize the boot. Like POST processes, the boot loader code comes from a \"hard-wired\" and persistent location; if that location is too limited for some reason, that primary boot loader calls a second-stage boot loader or a secondary program loader.
 
 ## Standard streams
 
@@ -237,7 +237,7 @@ int main()
 
 ## Application Programming Interface (API)
 
-An application programming interface (API) is a set of routines, protocols, and tools for building software applications. An API expresses a software component in terms of its operations, inputs, outputs, and underlying types, defining functionalities that are independent of their respective implementations, which allows definitions and implementations to vary without compromising the interface. A good API makes it easier to develop a program by providing all the building blocks, which are then put together by the programmer. An API may be provided by the operating system (like Linux or the Windows API), drivers (for example by the Kinect SDK[^2]), programming languages (like Java, C++ or Swift) or by third-party libraries (like Cocoa Touch).
+An application programming interface (API) is a set of routines, protocols, and tools for building software applications. An API expresses a software component in terms of its operations, inputs, outputs, and underlying types, defining functionalities that are independent of their respective implementations, which allows definitions and implementations to vary without compromising the interface. A good API makes it easier to develop a program by providing all the building blocks, which are then put together by the programmer. An API may be provided by the operating system (like Linux or the Windows API), drivers (for example by the Kinect SDK<sup>[2](#footnote-sdk)</sup>), programming languages (like Java, C++ or Swift) or by third-party libraries (like Cocoa Touch).
 
 ## User Interface
 
@@ -697,15 +697,15 @@ A record stored on disk, or a record synthesized on demand by a file server, can
 
 ## Shared memory
 
-**Shared memory** is [memory](https://en.wikipedia.org/wiki/Random-access_memory) that may be simultaneously accessed by multiple programs with an intent to provide communication among them or avoid redundant copies. Depending on context, programs may run on a single processor or on multiple separate processors.[^3]
+**Shared memory** is [memory](https://en.wikipedia.org/wiki/Random-access_memory) that may be simultaneously accessed by multiple programs with an intent to provide communication among them or avoid redundant copies. Depending on context, programs may run on a single processor or on multiple separate processors.<sup>[3](#footnote-shared-memory)</sup>
 
 Since both processes can access the shared memory area like regular working memory, this is a very fast way of communication. On the other hand, it is less scalable, as for example the communicating processes must be running on the same machine (of other IPC methods, only Internet domain sockets can use a [computer network](https://en.wikipedia.org/wiki/Computer_network)), and care must be taken to avoid issues if processes sharing memory are running on separate CPUs and the underlying architecture is not [cache coherent](https://en.wikipedia.org/wiki/Cache_coherence).
 
 ### POSIX example
 
-The following example is taken from the book Operating Systems Main Concepts, by Silberschatz, Galvin and Gagne. It demonstrates the use of shared memory in POSIX environments (like Linux or macOS), and consists of two programs, a producer writing messages into the shared region, and a consumer reading and displaying it on the screen.[^4]
+The following example is taken from the book Operating Systems Main Concepts, by Silberschatz, Galvin and Gagne. It demonstrates the use of shared memory in POSIX environments (like Linux or macOS), and consists of two programs, a producer writing messages into the shared region, and a consumer reading and displaying it on the screen.<sup>[4](#footnote-gcc)</sup>
 
-Producer[^5]:
+Producer (inspired from [this one](http://www.cse.psu.edu/~deh25/cmpsc473/notes/OSC/Processes/shm-posix-producer-orig.c)):
 ```
 #include <stdio.h>
 #include <stdlib.h>
@@ -755,7 +755,7 @@ int main()
 }
 ```
 
-Consumer[^6]:
+Consumer (inspired from [this one](http://www.cse.psu.edu/~deh25/cmpsc473/notes/OSC/Processes/shm-posix-consumer-orig.c)):
 ```
 #include <stdio.h>
 #include <stdlib.h>
@@ -808,7 +808,7 @@ Message passing is used ubiquitously in modern computer software. It is used as 
 
 A network socket is an endpoint of a connection across a computer network. Today, most communication between computers is based on the Internet Protocol; therefore, most network sockets are Internet sockets. More precisely, a socket is a handle (an abstract reference) that a local program can pass to the networking API to use the connection, for example \"send this data on this socket\". Sockets are internally often simply integers, that identify which connection to use.
 
-A socket API is usually provided by the operating system and allows application programs to control and use network sockets[^7]. Internet socket APIs are usually based on the Berkeley sockets standard. In the Berkeley sockets standard, sockets are a form of file descriptor (a file handle), due to the Unix philosophy that \"everything is a file\", and the analogies between sockets and files: you can read, write, open, and close both. In practice the differences mean the analogy is strained, and one instead use different interfaces (send and receive) on a socket. In inter-process communication, each end will generally have its own socket, but these may use different APIs: they are abstracted by the network protocol.
+A socket API is usually provided by the operating system and allows application programs to control and use network sockets<sup>[5](#footnote-socket)</sup>. Internet socket APIs are usually based on the Berkeley sockets standard. In the Berkeley sockets standard, sockets are a form of file descriptor (a file handle), due to the Unix philosophy that \"everything is a file\", and the analogies between sockets and files: you can read, write, open, and close both. In practice the differences mean the analogy is strained, and one instead use different interfaces (send and receive) on a socket. In inter-process communication, each end will generally have its own socket, but these may use different APIs: they are abstracted by the network protocol.
 
 A socket address is the combination of an IP address and a port number, much like one end of a telephone connection is the combination of a phone number and an extension. Sockets need not have an address (for example for only sending data), but if a program binds a socket to an address, the socket can be used to receive data sent to that address. Based on this address, internet sockets deliver incoming data packets to the appropriate application process or thread.
 
@@ -1116,16 +1116,13 @@ int main()
   |Memory is de-allocated on destruction (it is stored in stack)                         |Can lead to memory leak (stored in heap)                                    |Memory is de-allocated on destruction (object in stack, data in heap)
   |Maximum size is limited by current stack state, and it is usually low                 |Maximum size is only limited by available memory                            |Maximum size is only limited by available memory
 
-[^1]: A power-on self-test (POST) is a process performed by firmware or software routines immediately after a computer or other digital electronic device is powered on.
+# Footnotes
+<a name="footnote-post">1</a>: A power-on self-test (POST) is a process performed by firmware or software routines immediately after a computer or other digital electronic device is powered on.
 
-[^2]: Software Development Kit: is typically a set of software development tools that allows the creation of applications for a certain software package, software framework, hardware platform, computer system, video game console, operating system, or similar development platform. To create applications, you have to download this software development kit.
+<a name="footnote-sdk">2</a>: Software Development Kit: is typically a set of software development tools that allows the creation of applications for a certain software package, software framework, hardware platform, computer system, video game console, operating system, or similar development platform. To create applications, you have to download this software development kit.
 
-[^3]: Using memory for communication inside a single program, for example among its multiple [threads](https://en.wikipedia.org/wiki/Thread_(computer_science)), is also referred to as shared memory, although it is not properly an IPC technique.
+<a name="footnote-shared-memory">3</a>: Using memory for communication inside a single program, for example among its multiple [threads](https://en.wikipedia.org/wiki/Thread_(computer_science)), is also referred to as shared memory, although it is not properly an IPC technique.
 
-[^4]: These files cannot be compiled in Visual Studio. To run them you need to use the GNU C compiler (gcc) in Linux, macOS, or other UNIX-like system).
+<a name="footnote-gcc">4</a>: These files cannot be compiled in Visual Studio. To run them you need to use the GNU C compiler (gcc) in Linux, macOS, or other UNIX-like system).
 
-[^5]: <http://www.cse.psu.edu/~deh25/cmpsc473/notes/OSC/Processes/shm-posix-producer-orig.c>
-
-[^6]: <http://www.cse.psu.edu/~deh25/cmpsc473/notes/OSC/Processes/shm-posix-consumer-orig.c>
-
-[^7]: An example is the Winsock API. Winsock tutorial and code examples can be seen at Microsoft Dev Center: <https://msdn.microsoft.com/en-us/library/windows/desktop/ms738545(v=vs.10).aspx>
+<a name="footnote-socket">5</a>: An example is the Winsock API. Winsock tutorial and code examples can be seen at Microsoft Dev Center: <https://msdn.microsoft.com/en-us/library/windows/desktop/ms738545(v=vs.10).aspx>
