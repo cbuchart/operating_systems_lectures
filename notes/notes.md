@@ -39,16 +39,14 @@ A real-time operating system is an operating system that guarantees to process e
 
 ## Main operating systems
 
--  Unix and Unix-like, including:
-  -  Linux
-  -  Android
-  -  BSD
-  -  macOS
-  -  iOS
-  -  FreeBSD
-  -  Solaris
+-  Linux (including distros like Debian, Ubuntu, Fedora, CentOS, SuSE)
+-  Android
+-  BSD
+-  macOS
+-  iOS
+-  FreeBSD
+-  Solaris
 -  Windows
--  Windows Phone
 
 ## Kernel
 
