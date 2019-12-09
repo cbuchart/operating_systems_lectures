@@ -149,7 +149,7 @@ A device driver is the software that tells the operating system how to communica
 
 ## Firmware
 
-Firmware is a type of software that provides control, monitoring and data manipulation of engineered products and systems, permanently etched into the hardware. Typical examples of devices containing firmware are embedded systems (such as traffic lights, consumer appliances, and digital watches), computers, computer peripherals, mobile phones, and digital cameras, but not all devices have firmware (only devices with some *level of intelligence*). The firmware contained in these devices provides the low-level control program for the device. As of 2013, most firmware can be updated.
+Firmware is a type of software that provides control, monitoring and data manipulation of engineered products and systems, permanently etched into the hardware. Typical examples of devices containing firmware are embedded systems (such as traffic lights, consumer appliances, and digital watches), computers, computer peripherals, mobile phones, and digital cameras, but not all devices have firmware (only devices with some _level of intelligence_). The firmware contained in these devices provides the low-level control program for the device. As of 2013, most firmware can be updated.
 
 ## Callbacks
 
@@ -192,7 +192,7 @@ An operating system needs to be able to schedule an activity sometime in the fut
 
 ## Modes of operation
 
-Modern CPUs support multiple modes of operation. CPUs with this capability use at least two modes: protected mode and supervisor mode. The supervisor mode is used by the operating system\'s kernel for low level tasks that need unrestricted access to hardware, such as controlling how memory is written and erased, and communication with devices like graphics cards. Protected mode, in contrast, is used for almost everything else. Applications operate within protected mode and can only use hardware by communicating with the kernel, which controls everything in supervisor mode. In protected mode programs may have access to a more limited set of the CPU\'s instructions. These modes are also referred as *rings* in some CPUs.
+Modern CPUs support multiple modes of operation. CPUs with this capability use at least two modes: protected mode and supervisor mode. The supervisor mode is used by the operating system\'s kernel for low level tasks that need unrestricted access to hardware, such as controlling how memory is written and erased, and communication with devices like graphics cards. Protected mode, in contrast, is used for almost everything else. Applications operate within protected mode and can only use hardware by communicating with the kernel, which controls everything in supervisor mode. In protected mode programs may have access to a more limited set of the CPU\'s instructions. These modes are also referred as _rings_ in some CPUs.
 
 CPUs might have other modes similar to protected mode as well, such as the virtual modes in order to emulate older processor types, such as 16-bit processors on a 32-bit one, or 32-bit processors on a 64-bit one. In this way, the operating system can maintain exclusive control over things like access to hardware and memory.
 
@@ -261,15 +261,15 @@ When a command processor is active a program is typically invoked by typing its 
 
 ```ls -la | grep --count Do > count.txt```
 
-  |ls       |-la                  |\|    |grep     |\--count            |Do     |\>                           |count.txt
+  |ls       |-la                  |\|    |grep     |\--count            |Do     |\>                           |count.txt|
   |---------|---------------------|------|---------|--------------------|-------|-----------------------------|-------------
-  |command  |option (short form)  |pipe  |command  |option (long form)  |value  |standard output redirection  |output file
+  |command  |option (short form)  |pipe  |command  |option (long form)  |value  |standard output redirection  |output file|
 
 Some programming languages, such as C, C++ and Java, allow a program to interpret the command-line arguments by handling them as string parameters in the main function. Other languages, such as Python, expose these arguments as global variables.
 
-C/C++ allow a program to obtain the command line arguments provided when the executable is called, using two optional parameters of \"*main()*\" named \"*argc* (argument count)\" and \"*argv* (argument vector)\".
+C/C++ allow a program to obtain the command line arguments provided when the executable is called, using two optional parameters of `main()` named `argc` (argument count) and `argv` (argument vector).
 
-The \"*argc*\" variable gives the count of the number of command-line parameters provided to the program. This count includes the name of the program itself, so it will always have a value of at least one. The \"*argv*\" variable is a pointer to the first element of an array of strings, with each element containing one of the command-line arguments.
+The `argc` variable gives the count of the number of command-line parameters provided to the program. This count includes the name of the program itself, so it will always have a value of at least one. The `argv` variable is a pointer to the first element of an array of strings, with each element containing one of the command-line arguments.
 
 Example
 
@@ -351,29 +351,29 @@ int main(int argc, char* argv[])
 
 Redirection is a function common to most command-line interpreters, including the various Unix shells that can redirect standard streams to user-specified locations (usually a file). In Unix-like operating systems, a single hyphen-minus by itself is usually a special value specifying that a program should handle data coming from the standard input or send data to the standard output. Examples:
 
--   Executes *command* and place output in *output\_file* instead of displaying it at the terminal. The content of *output\_file* is replaced with each execution.
+-   Executes `command` and place output in `output_file` instead of displaying it at the terminal. The content of `output_file` is replaced with each execution.
 
-  ```command > output_file```
+    `command > output_file`
 
--   Similar to previous one, but output is appended at the end of *output\_file* instead of replacing.
+-   Similar to previous one, but output is appended at the end of `output_file` instead of replacing.
 
-  ```command >> output_file```
+    `command >> output_file`
 
--   Executes *command* with *input\_file* as the source of input, as opposed to the keyboard.
+-   Executes `command` with `input_file` as the source of input, as opposed to the keyboard.
 
-  ```command < input_file```
+    `command < input_file`
 
--   Executes *command* and take input from *input\_file* and place output in *output\_file*.
+-   Executes `command` and take input from `input_file` and place output in `output_file`.
 
-  ```command < input_file > output_file```
+    `command < input_file > output_file`
 
--   Redirects the standard error stream to *error\_file* and output to *output\_file*.
+-   Redirects the standard error stream to `error_file` and output to `output_file`.
 
-  ```command 2> error_file > output_file```
+    `command 2> error_file > output_file`
 
--   Redirects both *stderr* and *stdout* to the same file, merging error messages and standard output.
+-   Redirects both `stderr` and `stdout` to the same file, merging error messages and standard output.
 
-  ```command 2>&1 output_file```
+    `command 2>&1 output_file`
 
 ### Graphical User Interface (GUI)
 
