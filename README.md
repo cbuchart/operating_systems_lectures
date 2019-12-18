@@ -7,3 +7,7 @@ This repository contains different supporting material for my Operating Systems 
 -   **Course notes**: an extended table-of-content to help to summarize the theory. [Here](notes/notes.md).
 -   **Thread or trick**: practice for multi-threading and synchronization. [Statement](ThreadOrTrick/README.md). [Solution](ThreadOrTrick/solution.cpp).
 -   **C++ containers**: practice for studying performance on ```std::vector``` and ```std::list```. [Statement](CppContainers/README.md). [Code](CppContainers/cpp_basic_containers.cpp).
+
+# Credits
+
+-   The [map](images/map.jpg) was created using the [Azgaar's Fantasy Map Generator](https://azgaar.github.io/Fantasy-Map-Generator/). The map source code is available [here](images/os_topics.map).
