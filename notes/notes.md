@@ -141,7 +141,7 @@ A real-time operating system is an operating system that guarantees to process e
 
 With the aid of the firmware and device drivers, the kernel provides the most basic level of control over all the computer\'s hardware devices. It manages memory access for programs in the RAM, it determines which programs get access to which hardware resources, it sets up or resets the CPU\'s operating states for optimal operation always, and it organizes the data for long-term non-volatile storage with file systems on such media as disks, tapes, flash memory, etc.<sup>[^](https://en.wikipedia.org/wiki/Operating_system#Kernel)</sup>
 
-![](./media/image1.png)
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kernel_Layout.svg/380px-Kernel_Layout.svg.png)
 
 ## Device drivers
 
