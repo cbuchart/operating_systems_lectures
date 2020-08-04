@@ -102,29 +102,29 @@ _Also, some content was taken from Wikipedia long time ago. When I decided to sh
 
 ## What an OS is?
 
-An operating system (OS) is system software that manages computer hardware and software resources and provides common services for computer programs. Application programs usually require an operating system to function.
+An operating system (OS) is system software that manages computer hardware and software resources and provides common services for computer programs<sup>[^](https://en.wikipedia.org/wiki/Operating_system)</sup>. Application programs usually require an operating system to function.
 
 ## Types of OSs
 
 ### Single- and multi-tasking
 
-A single-tasking system can only run one program at a time, while a multi-tasking operating system allows more than one program to be running in concurrency. This is achieved by time-sharing, dividing the available processor time between multiple processes which are each interrupted repeatedly in time-slices by a task scheduling subsystem of the operating system. Multi-tasking may be characterized in preemptive and co-operative types. In preemptive multitasking, the operating system slices the CPU time and dedicates a slot to each of the programs. Unix-like operating systems, e.g., Solaris, Linux, as well as AmigaOS support preemptive multitasking. Cooperative multitasking is achieved by relying on each process to provide time to the other processes in a defined manner. 16-bit versions of Microsoft Windows used cooperative multi-tasking. 32-bit versions of both Windows NT and Win9x, used preemptive multi-tasking. On the other hand, it is important to differentiate a multi-tasking OS from a multi-tasking user interface. For example, iOS is based on Unix and it is therefore a multi-tasking OS (cellular services, user interface, music player, all are processes running at the same time), but its front-end interface didn't allow the user to execute more than one application at a time until version 4.0.
+A single-tasking system can only run one program at a time, while a multi-tasking operating system allows more than one program to be running in concurrency. This is achieved by time-sharing, dividing the available processor time between multiple processes which are each interrupted repeatedly in time-slices by a task scheduling subsystem of the operating system. Multi-tasking may be characterized in preemptive and co-operative types. In preemptive multitasking, the operating system slices the CPU time and dedicates a slot to each of the programs. Unix-like operating systems, e.g., Solaris, Linux, as well as AmigaOS support preemptive multitasking. Cooperative multitasking is achieved by relying on each process to provide time to the other processes in a defined manner. 16-bit versions of Microsoft Windows used cooperative multi-tasking. 32-bit versions of both Windows NT and Win9x, used preemptive multi-tasking. On the other hand, it is important to differentiate a multi-tasking OS from a multi-tasking user interface.<sup>[^](https://en.wikipedia.org/wiki/Operating_system#Single-tasking_and_multi-tasking)</sup> For example, iOS is based on Unix and it is therefore a multi-tasking OS (cellular services, user interface, music player, all are processes running at the same time), but its front-end interface didn't allow the user to execute more than one application at a time until version 4.0.
 
 ### Single- and multi-user
 
-Single-user operating systems have no facilities to distinguish users but may allow multiple programs to run in tandem. A multi-user operating system extends the basic concept of multi-tasking with facilities that identify processes and resources, such as disk space, belonging to multiple users, and the system permits multiple users to interact with the system at the same time. Time-sharing operating systems schedule tasks for efficient use of the system and may also include accounting software for cost allocation of processor time, mass storage, printing, and other resources to multiple users.
+Single-user operating systems have no facilities to distinguish users but may allow multiple programs to run in tandem. A multi-user operating system extends the basic concept of multi-tasking with facilities that identify processes and resources, such as disk space, belonging to multiple users, and the system permits multiple users to interact with the system at the same time. Time-sharing operating systems schedule tasks for efficient use of the system and may also include accounting software for cost allocation of processor time, mass storage, printing, and other resources to multiple users.<sup>[^](https://en.wikipedia.org/wiki/Operating_system#Single-_and_multi-user)</sup>
 
 ### Distributed
 
-A distributed operating system manages a group of distinct computers and makes them appear to be a single computer. The development of networked computers that could be linked and communicate with each other gave rise to distributed computing. Distributed computations are carried out on more than one machine. When computers in a group work in cooperation, they form a distributed system.
+A distributed operating system manages a group of distinct computers and makes them appear to be a single computer.<sup>[^](https://en.wikipedia.org/wiki/Operating_system#Distributed)</sup> The development of networked computers that could be linked and communicate with each other gave rise to distributed computing. Distributed computations are carried out on more than one machine. When computers in a group work in cooperation, they form a distributed system.
 
 ### Embedded
 
-Embedded operating systems are designed to be used in embedded computer systems. They are designed to operate on small machines like PDAs, smartwatches or other devices with less autonomy. They are able to operate with a limited number of resources. They are very compact and extremely efficient by design. watchOS, Windows CE, Minix 3 are some examples of embedded operating systems.
+Embedded operating systems are designed to be used in embedded computer systems. They are designed to operate on small machines like PDAs, smartwatches or other devices with less autonomy. They are able to operate with a limited number of resources. They are very compact and extremely efficient by design. watchOS, Windows CE, Minix 3 are some examples of embedded operating systems.<sup>[^](https://en.wikipedia.org/wiki/Operating_system#Embedded)</sup>
 
 ### Real-time
 
-A real-time operating system is an operating system that guarantees to process events or data within a certain short amount of time. A real-time operating system may be single- or multi-tasking, but when multitasking, it uses specialized scheduling algorithms so that a deterministic nature of behavior is achieved. An event-driven system switches between tasks based on their priorities or external events while time-sharing operating systems switch tasks based on clock interrupts.
+A real-time operating system is an operating system that guarantees to process events or data within a certain short amount of time. A real-time operating system may be single- or multi-tasking, but when multitasking, it uses specialized scheduling algorithms so that a deterministic nature of behavior is achieved. An event-driven system switches between tasks based on their priorities or external events while time-sharing operating systems switch tasks based on clock interrupts.<sup>[^](https://en.wikipedia.org/wiki/Operating_system#Real-time)</sup>
 
 ## Main operating systems
 
@@ -139,7 +139,7 @@ A real-time operating system is an operating system that guarantees to process e
 
 ## Kernel
 
-With the aid of the firmware and device drivers, the kernel provides the most basic level of control over all the computer\'s hardware devices. It manages memory access for programs in the RAM, it determines which programs get access to which hardware resources, it sets up or resets the CPU\'s operating states for optimal operation always, and it organizes the data for long-term non-volatile storage with file systems on such media as disks, tapes, flash memory, etc.
+With the aid of the firmware and device drivers, the kernel provides the most basic level of control over all the computer\'s hardware devices. It manages memory access for programs in the RAM, it determines which programs get access to which hardware resources, it sets up or resets the CPU\'s operating states for optimal operation always, and it organizes the data for long-term non-volatile storage with file systems on such media as disks, tapes, flash memory, etc.<sup>[^](https://en.wikipedia.org/wiki/Operating_system#Kernel)</sup>
 
 ![](./media/image1.png)
 
