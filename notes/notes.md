@@ -293,11 +293,11 @@ If called as
 then output will be
 
 ```
-./example
-my
-list
-of
-arguments
+Argument 0: ./example
+Argument 1: my
+Argument 2: list
+Argument 3: of
+Argument 4: arguments
 ```
 
 Some third-party libraries provide more powerful tools for command line arguments processing. One of the best ones is Boost (<http://www.boost.org)>, a C++ library that extends the standard library. Here an example of the boost::program\_options module. Please refer to the documentation for more information about it.
