@@ -41,7 +41,7 @@ Optionally, following features will be considered for accumulated points for the
 -  You will receive both the dictionary and some test cases.
 -  The application will be tested against a group of input files, some of them hidden to you.
 -  You must parallelize the spell-checker with as many threads as the computer where it is running allow.
--  Sample execution line: spell_checker.exe dictionary.txt < test_1.txt
+-  Sample execution line: `spell_checker.exe dictionary.txt < test_1.txt > test_1.html`
 
 ## Grading
 -  The project scores for 20% of Operating System part (it is, 10% of the Course).
