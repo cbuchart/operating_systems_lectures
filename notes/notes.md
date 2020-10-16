@@ -33,7 +33,7 @@ _Also, some content was taken from Wikipedia long time ago. When I decided to sh
     -   [User Interface](#user-interface)
         -   [Command Line Interface (CLI)](#command-line-interface--cli-)
             -   [Command line arguments](#command-line-arguments)
-            -   [I/O redirection](#i-o-redirection)
+            -   [I/O redirection](#io-redirection)
         -   [Graphical User Interface (GUI)](#graphical-user-interface--gui-)
 -   [Process management](#process-management)
     -   [Process](#process)
