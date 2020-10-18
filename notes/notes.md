@@ -375,6 +375,8 @@ Redirection is a function common to most command-line interpreters, including th
 
     `command 2>&1 output_file`
 
+A basic example that takes input text and generates a basic HTML can be found [here](../src/examples/basic_std_io.cpp). Once compiled execute redirecting a file to the standard input and save the output: `executable < plain_text.txt > file.html`.
+
 ### Graphical User Interface (GUI)
 
 A graphical user interface is a type of interface that allows users to interact with electronic devices through graphical icons and visual indicators such as secondary notation, as opposed to text-based interfaces, typed command labels or text navigation. GUIs were introduced in reaction to the perceived steep learning curve of CLIs, which require commands to be typed on the keyboard. The actions in a GUI are usually performed through direct manipulation of the graphical elements using special input devices like a mouse.
