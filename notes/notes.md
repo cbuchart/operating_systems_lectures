@@ -636,15 +636,19 @@ Inter-process communication (IPC) refers specifically to the mechanisms an opera
 
 Programs can be run together such that one program reads the output from another with no need for an explicit intermediate file. This is called piping. The two programs performing the commands may run in parallel with the only storage space being working buffers (Linux allows up to 64K for each buffer) plus whatever work space each command\'s processing requires. In the following example, `command2` takes the output of `command1` as the source of input.
 
+```
 command1 \| command2
+```
 
 This produces the same result as using two redirects and a temporary file, as in:
 
+```
 command1 \> tmp\_file
 
 command2 \< tmp\_file
 
 rm tmp\_file
+```
 
 But here, `command2` does not start executing until `command1` has finished, and a sufficiently large scratch file is required to hold the intermediate results as well as whatever work space each task requires.
 
