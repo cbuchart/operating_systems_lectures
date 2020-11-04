@@ -7,7 +7,7 @@ The goal of this project is to drive you from simple and traditional console app
 ## Description
 Your spell-checker application shall read an arbitrary plain text, and, based on a given dictionary (a file with valid words), generate an HTML document that will highlight errors while preserving the original document structure. Both the input text and the dictionary will correspond with English language.
  
-Optionally, following features will be considered for accumulated points for the final exam. Note that you must have at least a 3.5 score in the exam to be able to use this extra points.
+Optionally, following features will be considered for accumulated points for the final exam. Note that you must have at least a 3.5 score in the exam to be able to use these extra points.
 1.  For 2.5 points in the exam: The application will suggest the best replacement (or one if several can be considered the bests). This shall be done as a hovering.
  
 2.  For 5 points in the exam: The application is a web server or mobile application with form to introduce the text, some kind of "Check spell" button, and shall show the aforementioned HTML document as a result. Note that for this part you can use any additional programming language you want, but the backend module must be your command-line application in C++.
