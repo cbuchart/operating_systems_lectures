@@ -36,12 +36,14 @@ Optionally, following features will be considered for accumulated points for the
 
 ## Rules
 -   Source code and build instructions shall be sent through ADI before November 15th at 23:59:59 UTC+1. You can modify your submission until that time span, but no submission will be accepted after that.
--   As usual, execution time is critical for every application, and yours will not be the exception. Your application shall not exceed 5 seconds of execution time. Applications will be run 10 times and minimum time will be considered.
--   The dictionary used will always be the same.
+-   As usual, execution time is critical for every application, and yours will not be the exception. The execution time of your application shall not exceed 5 seconds for texts lower than 100MB of length, and no more than 50 seconds for any other up to 1GB. Applications will be run 10 times and minimum time will be considered.
+-   The dictionary used will always be the same, but you must assume it will not. Also, do not assume anything about the dictionary (lower case words, sorted, etc).
 -   You will receive both the dictionary and some test cases.
 -   The application will be tested against a group of input files, some of them hidden to you.
 -   You must parallelize the spell-checker with as many threads as the computer where it is running allow.
+-   Your application can be 32 or 64 bits, but test both to check which one is more efficient.
 -   Sample execution line: `spell_checker.exe dictionary.txt < test_1.txt > test_1.html`
+-   Test machine will be an i7 7700HQ (4 physical cores, 8 logical cores) with 16GB of RAM and Windows 10 64 bits (2004).
 
 ## Grading
 -   The project scores for 20% of Operating System part (it is, 10% of the Course).
