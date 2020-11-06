@@ -11,7 +11,7 @@ This repository contains different supporting material for my Operating Systems 
 
 ## Project and practices
 
--   **Examples**: collection of short examples for diverse topics. [List](src/examples).
+-   **Examples**: collection of short examples for diverse topics. [Here](src/examples).
 -   **Thread or trick**: practice for multi-threading and synchronization. [Statement](src/ThreadOrTrick/README.md). [Solution](src/ThreadOrTrick/solution.cpp).
 -   **C++ containers**: practice for studying performance on ```std::vector``` and ```std::list```. [Statement](src/CppContainers/README.md). [Code](src/CppContainers/cpp_basic_containers.cpp).
 -   **Spell checker**: project to develop an spell checker that process input in parallel. [Statement](src/SpellChecker/README.md).
