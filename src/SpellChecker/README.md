@@ -4,20 +4,20 @@ Nowadays virtually all text editors have built-in spell-check feature. In this p
 
 The goal of this project is to drive you from simple and traditional console application to more sophisticated utilities that can be integrated in more complex workflows.
 
-## Description
+## Description 📃
 Your spell-checker application shall read an arbitrary plain text, and, based on a given dictionary (a file with valid words), generate an HTML document that will highlight errors while preserving the original document structure. Both the input text and the dictionary will correspond with English language.
  
 Optionally, following features will be considered for accumulated points for the final exam. Note that you must have at least a 3.5 score in the exam to be able to use these extra points.
 1.  For 2.5 points in the exam: The application will suggest the best replacement (or one if several can be considered the bests). This shall be done as a hovering.
  
-2.  For 5 points in the exam: The application is a web server or mobile application with form to introduce the text, some kind of "Check spell" button, and shall show the aforementioned HTML document as a result. Note that for this part you can use any additional programming language you want, but the backend module must be your command-line application in C++.
+2.  For 5 points in the exam: The application is a web server or mobile application with a form to introduce the text, some kind of "Check spell" button, and shall show the aforementioned HTML document as a result. Note that for this part you can use any additional programming language you want, but the backend module must be your command-line application in C++.
 
-## Language and compiler
+## Language and compiler 🖥
 -   It shall be developed in C++ (up to C++17), with no third-party libraries, only the C++ standard libraries are allowed.
 -   You can use the IDE and compiler you want as long as you specify which one you used and the compilation command line, solution file or makefile necessary to build the project.
 -   You can develop for either x86 or x64 platforms. No other architectures, like ARM, are allowed for the core project. Nevertheless, for the second optional part you can use the language and frameworks you consider the most appropriate.
 
-## Input
+## Input 🔤
 -   The input text shall be read from standard input.
 -   The input text will be in English.
 -   The dictionary shall be read from a file, which path will be indicated as a command line argument.
@@ -29,13 +29,15 @@ Optionally, following features will be considered for accumulated points for the
 -   Expect huge input text files (up to 1GB) and large dictionaries (>350K words). Sample input files and outputs can be found in the [test](test) directory.
 -   You can download the dictionary from https://github.com/dwyl/english-words/blob/master/words_alpha.txt
 
-## Output
+## Output 🕸
 -   Output shall be formatted as a standard HTML document. You can assume HTML 5 compliance.
 -   All the necessary code to render the HTML shall be included into the same document: no external CSS or JavaScript code will be admitted.
 -   You can choose the style and format of elements as long as misspelled words are highlighted.
 
-## Rules
--   Source code and build instructions shall be sent through ADI before November 15th at 23:59:59 UTC+1. You can modify your submission until that time span, but no submission will be accepted after that.
+## Rules 📏
+-   Source code and build instructions shall be sent through ADI before November 22nd at 23:59:59 UTC+1. You can modify your submission until that time span, but no submission will be accepted after that. Only one member of the team should upload the project.
+-   The submission must be a zip file containing the source code, project files, build instructions and a list with the members of the group.
+-   Questions about the project will be accepted up to 48h before the deadline. Any last minute question may not be answered.
 -   As usual, execution time is critical for every application, and yours will not be the exception. The execution time of your application shall not exceed 5 seconds for texts lower than 100MB of length, and no more than 50 seconds for any other up to 1GB. Applications will be run 10 times and minimum time will be considered.
 -   The dictionary used will always be the same, but you must assume it will not. Also, do not assume anything about the dictionary (lower case words, sorted, etc).
 -   You will receive both the dictionary and some test cases.
@@ -45,7 +47,7 @@ Optionally, following features will be considered for accumulated points for the
 -   Sample execution line: `spell_checker.exe dictionary.txt < test_1.txt > test_1.html`
 -   Test machine will be an i7 7700HQ (4 physical cores, 8 logical cores) with 16GB of RAM and Windows 10 64 bits (2004).
 
-## Grading
+## Grading 🥇
 -   The project scores for 20% of Operating System part (it is, 10% of the Course).
 -   Total grading is proportional to the number of misspelled words found, minus penalizations, if any.
 -   The project will not be graded at all if it does not compile.
@@ -57,7 +59,7 @@ Optionally, following features will be considered for accumulated points for the
 -   If you implement the web server or the mobile application, please submit their code too and contact the professor to arrange a live demonstration.
 -   Penalizations also applies to extra points.
 
-## Tips
+## Tips 💡
 -   Read about following data structures and algorithms: [std::string](https://en.cppreference.com/w/cpp/string/basic_string), [std::set](https://en.cppreference.com/w/cpp/container/set), trie, Levenshtein distance. They are only suggestions to start to work, it is not mandatory to use them and you can try with any other one you prefer.
 -   Use an incremental development. For example: start with a basic application that reads the text and produce an HTML with words of more than 5 characters highlighted, then read the dictionary and do the actual check. Once you have this basic application working, parallelize it and solve the race conditions. Once completed, and only then, optimize your code.
 -   Parallelization can be done at many levels: by line, by word
@@ -67,7 +69,7 @@ Optionally, following features will be considered for accumulated points for the
 -   Every time you have a valid project, upload it. Do not way until the very last minute to send it. There are no excuses for missing the deadline.
 -   Once you have the mandatory features, try adding the optional ones.
 
-### Measuring time
+### Measuring time ⏳
 
 You can use the following class to easily measure the execution time of a certain code block:
 
