@@ -300,7 +300,7 @@ Argument 3: of
 Argument 4: arguments
 ```
 
-Some third-party libraries provide more powerful tools for command line arguments processing. One of the best ones is Boost (<http://www.boost.org)>, a C++ library that extends the standard library. [Here](../src/examples/boost_cli_args.cpp) an example of the boost::program\_options module. Please refer to the documentation for more information about it.
+Some third-party libraries provide more powerful tools for command line arguments processing. One of the best ones is Boost (<http://www.boost.org)>, a C++ library that extends the standard library. [Here](../src/examples/boost_cli_args.cpp) an example of the `boost::program_options` module. Please refer to the documentation for more information about it.
 
 #### I/O redirection
 
