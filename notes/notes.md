@@ -1032,6 +1032,8 @@ Containers are objects to store data. The standard sequence containers include v
 
 Take a look at these interesting notes from Bjarne Stroustrup (creator of C++) about memory considerations when choosing data structures: https://isocpp.org/blog/2014/06/stroustrup-lists
 
+[`std::unordered_map`](https://en.cppreference.com/w/cpp/container/unordered_map) and [`std::unordered_set`](https://en.cppreference.com/w/cpp/container/unordered_set) are similar containers to their _ordered_ counterparts, but that don't sort elements but use their hash key, allowing constant time for insertion, search and removal.
+
 #### Algorithms
 
 A large number of algorithms to perform activities, such as searching and sorting, are provided in the STL, each implemented to require a certain level of iterator (and therefore will work on any container that provides an interface by iterators). Searching algorithms like [`binary_search`](https://en.cppreference.com/w/cpp/algorithm/binary_search) and [`lower_bound`](https://en.cppreference.com/w/cpp/algorithm/lower_bound) use binary search and like sorting algorithms require that the type of data must implement comparison operator \< or custom comparator function must be specified; such comparison operator or comparator function must guarantee strict weak ordering. The sort method is usually a variation of the quick sort algorithm. Apart from these, algorithms are provided for making heap from a range of elements, generating lexicographically ordered permutations of a range of elements, merge sorted ranges and perform union, intersection, difference of sorted ranges.
