@@ -537,7 +537,7 @@ Four conditions are necessary to have a good solution to the critical section pr
 
 ### Mutex
 
-A mutex (from_mut_ual _ex_clusion) is a synchronization primitive that can be used to protect shared data from being simultaneously accessed by multiple threads. It offers exclusive, non-recursive ownership semantics:
+A mutex (from _mut_ual _ex_clusion) is a synchronization primitive that can be used to protect shared data from being simultaneously accessed by multiple threads. Starting in C++11 you have the [`std::mutex`](https://en.cppreference.com/w/cpp/thread/mutex) objects. It offers exclusive, non-recursive ownership semantics:
 
 -   A calling thread owns a mutex from the time that it successfully calls either `lock` or `try_lock` until it calls `unlock`.
 
@@ -545,9 +545,9 @@ A mutex (from_mut_ual _ex_clusion) is a synchronization primitive that can be us
 
 -   A calling thread must not own the mutex prior to calling `lock` or `try_lock`.
 
-In addition, a lock guard (`lock_guard` in C++11) is a mutex wrapper that provides a convenient mechanism for owning a mutex for the duration of a scoped block.
+In addition, a lock guard is a mutex wrapper that provides a convenient mechanism for owning a mutex for the duration of a scoped block. Starting in C++11 the language provide several different lock types, including [`lock_guard`](https://en.cppreference.com/w/cpp/thread/lock_guard) and [`unique_lock`](https://en.cppreference.com/w/cpp/thread/unique_lock) (in general prefer this one over the first).
 
-When a lock guard object is created, it attempts to take ownership of the mutex it is given. When control leaves the scope in which the lock guard object was created, the lock guard is destructed and the mutex is released.
+When a lock guard object is created, it attempts to take ownership of the mutex it is given. When control leaves the scope in which the lock guard object was created, the lock guard is destructed and the mutex is released. This is very useful for functions with a complex logic or with several exit points, and for those that must return a copy of the protected object.
 
 Example:
 
@@ -573,10 +573,12 @@ void thread_func_non_blocking()
 
 void thread_func_with_lock_guard()
 {
-  std::lock_guard<std::mutex> lock(a_mutex);
+  std::unique_lock<std::mutex> lock(a_mutex);
   // Critical section
 }
 ```
+
+Opposite to non-recursive mutex, a recursive mutex ([`std::recursive_mutex`](https://en.cppreference.com/w/cpp/thread/recursive_mutex)) will not block if pretented to be acquired twice in the same thread. Recursive mutex are more complex but offer safety when functions that require access to a shared resource may call each other. In these scenarious, the thread already have acquired the resource, so it can safely use it.
 
 ## Synchronization problems
 
@@ -626,7 +628,7 @@ Deadlock prevention works by preventing one of the four conditions from occurrin
 
 -   The no preemption condition may also be difficult or impossible to avoid as a process must be able to have a resource for a certain amount of time, or the processing outcome may be inconsistent or thrashing may occur. However, inability to enforce preemption may interfere with a priority algorithm. Preemption of a _locked out_ resource generally implies a rollback, and is to be avoided, since it is very costly in overhead. Algorithms that allow preemption include lock-free and wait-free algorithms and optimistic concurrency control. If a process holding some resources and requests for some another resource(s) that cannot be immediately allocated to it, the condition may be removed by releasing all the currently being held resources of that process.
 
--   The final condition is the circular wait condition. Approaches that avoid circular waits include disabling interrupts during critical sections and using a hierarchy to determine a partial ordering of resources. If no obvious hierarchy exists, even the memory address of resources has been used to determine ordering and resources are requested in the increasing order of the enumeration.
+-   The final condition is the circular wait condition. Approaches that avoid circular waits include disabling interrupts during critical sections and using a hierarchy to determine a partial ordering of resources. If no obvious hierarchy exists, even the memory address of resources has been used to determine ordering and resources are requested in the increasing order of the enumeration. Some languages provide mechanisms to manage the mutex acquisition order. For example, in C++ we find the [`std::scoped_lock`](https://en.cppreference.com/w/cpp/thread/scoped_lock).
 
 # Inter-process communication (IPC)
 
