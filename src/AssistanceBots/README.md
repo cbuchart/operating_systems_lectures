@@ -39,6 +39,7 @@ Your program shall implement the following features:
 - All commands will be valid, so do not expect ill-formed lines.
 - Every note will have no more than 10 million characters.
 - Every command ends with an EOL (end-of-line).
+- Each test file will have no more than 100 notes.
 
 For example, the following input will create several notes (one private), search for tag `tecnun`, list the notes on `2021/10/21`, and search for tag `course`:
 
@@ -90,7 +91,7 @@ To meet the previous requirement take into consideration:
 
 - Create classifications based on tags (`#`) and mentions (`@`).
 - Text associated with a tag/mention is case sensitive (`#tecnun` and `#TECNUN` are different tags).
-- Text associated with a tag/mention shall be composed of alphanumeric characters only (`A`-`Z`, `a`-`z`, `0`-`9`). Any other character will mark the end of the tag (so `#tecnun-2021` represents tag `tecnun`).
+- Text associated with a tag/mention are composed of alphanumeric characters only (`A`-`Z`, `a`-`z`, `0`-`9`), with a minimum length of 1 character. Any other character will mark the end of the tag (so `#tecnun-2021` represents tag `tecnun`).
 - Tags/mentions have no size limit but the size of the note.
 
 #### Agenda 🗓
@@ -127,6 +128,7 @@ The workshop scheduled for November 12th (Friday, both classes) will cover the i
 - Source code and build instructions shall be sent through ADI before December 1st, 2021 at 23:59:59 UTC+1. You can modify your submission until that deadline, but no submissions will be accepted after that. Only one member of the team should upload the project.
 - The submission must be a zip file containing the source code, project files, and a document listing the members of the group, build instructions and a brief explanation of your bot. Include please a brief description of your bot and what it supposed to do. Do not include binaries, nor temporary build files.
 - Questions about the project will be accepted up to 48h before the deadline. Any last minute question may not be answered.
+- There will be a face-to-face session dedicated to questions about the project, scheduled on November 11th, 2021.
 - The application will be tested against a group of input files, some of them hidden to you. You will receive some sample input/output pairs for testing, but take in mind in may not cover all the possible cases, and that final input files may stress your application with large notes, many tags/mentions/dates, etc.
 - Your bot will be tested manually.
 - Your application can be 32 or 64 bits, but test both to check which one is more efficient.
@@ -142,7 +144,7 @@ The workshop scheduled for November 12th (Friday, both classes) will cover the i
 - Code elegance is particularly important: unorganized, not indented code will suppose a penalization of 10%.
 - Unsolved race conditions will suppose 50% of penalization since they may produce an incorrect output.
 - Missing multi-thread will have an impact of 60% of penalization.
-- Implementing correctly the pub/sub mechanism will receive a bonus of 25%. Overflow will be derived to the final exam 😁🎉.
+- Implementing correctly the pub/sub mechanism will receive a bonus of 50% over the project's value. Overflow will be derived to the final exam 😁🎉.
 - Cheating, plagiarism, or any other form of copy of other's work is a serious violation. It will be sanctioned with the absolute rejection of the project. If it involves two or more projects, all of them will be rejected, independently of who copied who. It also applies to the optional part. Nevertheless, and as explained several times, this is not a competition and we encourage collaboration; just avoid doing other ones job.
 - Submit only the source code, instructions and project files, do not submit sample nor binary files. Doing so will be penalized with a 5% off.
 - Penalizations also applies to the extra-part.
