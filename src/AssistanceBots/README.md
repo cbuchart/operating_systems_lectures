@@ -162,3 +162,8 @@ The workshop scheduled for November 12th (Friday, both classes) will cover the i
 - Be aware that bots are independant of each other, so the job done by a bot has no effects on the rest.
 - Be sure to save a copy without the pub/sub so you can deliver it in the case you cannot get it working.
 - When pub/sub is ready, use two topics, one for private and one for non-private notes, then subscribe all your bots to the non-private.
+
+## Solution
+
+You can find one solution to this problem [here](https://github.com/cbuchart/tecnun_assistance_bots).
+
